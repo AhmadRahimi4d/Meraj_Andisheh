@@ -1,0 +1,28 @@
+@page
+@model MerajAndisheh.Web.Pages.HealthModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>وضعیت برنامه</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #1e293b; }
+        main { max-width: 32rem; margin: 3rem auto; padding: 1.5rem; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+        .ok { color: #047857; }
+        .bad { color: #b91c1c; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>وضعیت برنامه</h1>
+        <p>
+            برنامه: <strong class="ok">سالم</strong>،
+            دیتابیس: <strong class="@(Model.DatabaseConnected ? "ok" : "bad")">@(Model.DatabaseConnected ? "متصل" : "قطع")</strong>
+        </p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,31 @@
+## Visual Studio / .NET
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+TestResults/
+[Dd]ebug/
+[Rr]elease/
+*.nupkg
+
+## Logs
+logs/
+*.log
+
+## Secrets and local settings (never commit passwords)
+secrets.json
+appsettings.*.local.json
+*.pfx
+
+## Uploaded files and backups (added in later stages)
+App_Data/
+Uploads/
+Backups/
+*.bak
+
+## OS
+Thumbs.db
+.DS_Store
