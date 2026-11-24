@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App.Name" xml:space="preserve">
+    <value>معراج اندیشه</value>
+  </data>
+  <data name="Common.SkipToContent" xml:space="preserve">
+    <value>پرش به محتوای اصلی</value>
+  </data>
+  <data name="Common.Close" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="Common.Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="Common.ListSeparator" xml:space="preserve">
+    <value>،</value>
+  </data>
+  <data name="Header.SearchPlaceholder" xml:space="preserve">
+    <value>جستجو در محتوا…</value>
+  </data>
+  <data name="Header.AgeGroup" xml:space="preserve">
+    <value>رده‌ی سنی</value>
+  </data>
+  <data name="Header.Favorites" xml:space="preserve">
+    <value>علاقه‌مندی‌ها</value>
+  </data>
+  <data name="Header.Login" xml:space="preserve">
+    <value>ورود / حساب کاربری</value>
+  </data>
+  <data name="Nav.Label" xml:space="preserve">
+    <value>ناوبری اصلی</value>
+  </data>
+  <data name="Nav.Menu" xml:space="preserve">
+    <value>منو</value>
+  </data>
+  <data name="Nav.Categories" xml:space="preserve">
+    <value>دسته‌بندی موضوعات</value>
+  </data>
+  <data name="Nav.Home" xml:space="preserve">
+    <value>صفحه‌ی اصلی</value>
+  </data>
+  <data name="Nav.Content" xml:space="preserve">
+    <value>بانک محتوا</value>
+  </data>
+  <data name="Mega.Topic1" xml:space="preserve">
+    <value>تاریخ</value>
+  </data>
+  <data name="Mega.Topic2" xml:space="preserve">
+    <value>رسانه</value>
+  </data>
+  <data name="Mega.Topic3" xml:space="preserve">
+    <value>دشمن‌شناسی</value>
+  </data>
+  <data name="Mega.Topic4" xml:space="preserve">
+    <value>اقتصاد</value>
+  </data>
+  <data name="Footer.AboutTitle" xml:space="preserve">
+    <value>درباره‌ی معراج اندیشه</value>
+  </data>
+  <data name="Footer.AboutText" xml:space="preserve">
+    <value>معراج اندیشه بانک محتوای تبیینی است؛ کنار هر محتوا منبع معتبر و قابل استناد می‌آید.</value>
+  </data>
+  <data name="Footer.LinksTitle" xml:space="preserve">
+    <value>دسترسی سریع</value>
+  </data>
+  <data name="Footer.About" xml:space="preserve">
+    <value>درباره‌ی ما</value>
+  </data>
+  <data name="Footer.ContactTitle" xml:space="preserve">
+    <value>تماس و قوانین</value>
+  </data>
+  <data name="Footer.Contact" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="Footer.Terms" xml:space="preserve">
+    <value>قوانین سایت</value>
+  </data>
+  <data name="Footer.Privacy" xml:space="preserve">
+    <value>حریم خصوصی</value>
+  </data>
+  <data name="Footer.Copyright" xml:space="preserve">
+    <value>تمام حقوق برای استودیو معراج اندیشه محفوظ است.</value>
+  </data>
+  <data name="Home.Title" xml:space="preserve">
+    <value>صفحه‌ی اصلی</value>
+  </data>
+  <data name="Home.Heading" xml:space="preserve">
+    <value>به معراج اندیشه خوش آمدی</value>
+  </data>
+  <data name="Home.Text" xml:space="preserve">
+    <value>این صفحه‌ی موقت است. صفحه‌ی اصلی واقعی (اسلایدر و قفسه‌ها) در مرحله‌ی ۱۸ ساخته می‌شود.</value>
+  </data>
+  <data name="Health.Title" xml:space="preserve">
+    <value>وضعیت برنامه</value>
+  </data>
+  <data name="Health.AppLabel" xml:space="preserve">
+    <value>برنامه</value>
+  </data>
+  <data name="Health.AppOk" xml:space="preserve">
+    <value>سالم</value>
+  </data>
+  <data name="Health.DbLabel" xml:space="preserve">
+    <value>دیتابیس</value>
+  </data>
+  <data name="Health.DbConnected" xml:space="preserve">
+    <value>متصل</value>
+  </data>
+  <data name="Health.DbDisconnected" xml:space="preserve">
+    <value>قطع</value>
+  </data>
+  <data name="Format.Video" xml:space="preserve">
+    <value>ویدیو</value>
+  </data>
+  <data name="Format.Article" xml:space="preserve">
+    <value>مقاله</value>
+  </data>
+  <data name="Format.Audio" xml:space="preserve">
+    <value>صوت</value>
+  </data>
+  <data name="Pagination.Prev" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="Pagination.Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="Dev.Title" xml:space="preserve">
+    <value>نمایش کامپوننت‌ها</value>
+  </data>
+  <data name="Dev.Theme.Title" xml:space="preserve">
+    <value>تغییر تم</value>
+  </data>
+  <data name="Dev.Theme.Playful" xml:space="preserve">
+    <value>بازیگوش (کودک)</value>
+  </data>
+  <data name="Dev.Theme.Modern" xml:space="preserve">
+    <value>مدرن (نوجوان و جوان)</value>
+  </data>
+  <data name="Dev.Theme.Editorial" xml:space="preserve">
+    <value>رسمی (بزرگسال)</value>
+  </data>
+  <data name="Dev.Section.Buttons" xml:space="preserve">
+    <value>دکمه‌ها</value>
+  </data>
+  <data name="Dev.Btn.Primary" xml:space="preserve">
+    <value>اصلی</value>
+  </data>
+  <data name="Dev.Btn.Secondary" xml:space="preserve">
+    <value>ثانویه</value>
+  </data>
+  <data name="Dev.Btn.Ghost" xml:space="preserve">
+    <value>شفاف</value>
+  </data>
+  <data name="Dev.Btn.Disabled" xml:space="preserve">
+    <value>غیرفعال</value>
+  </data>
+  <data name="Dev.Btn.Small" xml:space="preserve">
+    <value>کوچک</value>
+  </data>
+  <data name="Dev.Btn.Large" xml:space="preserve">
+    <value>بزرگ</value>
+  </data>
+  <data name="Dev.Section.Cards" xml:space="preserve">
+    <value>کارت محتوا</value>
+  </data>
+  <data name="Dev.Card.Title1" xml:space="preserve">
+    <value>مسیر اقتصاد در دهه‌ی گذشته</value>
+  </data>
+  <data name="Dev.Card.Title2" xml:space="preserve">
+    <value>سواد رسانه‌ای در عصر شبکه‌ها</value>
+  </data>
+  <data name="Dev.Card.Title3" xml:space="preserve">
+    <value>گفتگو درباره‌ی تاریخ معاصر</value>
+  </data>
+  <data name="Dev.Card.Minutes" xml:space="preserve">
+    <value>{0} دقیقه</value>
+  </data>
+  <data name="Dev.Section.Forms" xml:space="preserve">
+    <value>فیلدهای فرم</value>
+  </data>
+  <data name="Dev.Field.Name" xml:space="preserve">
+    <value>نام نمایشی</value>
+  </data>
+  <data name="Dev.Field.NameHelp" xml:space="preserve">
+    <value>لقب شما، نه نام واقعی</value>
+  </data>
+  <data name="Dev.Field.Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="Dev.Field.EmailError" xml:space="preserve">
+    <value>ایمیل واردشده معتبر نیست</value>
+  </data>
+  <data name="Dev.Field.AgeGroup" xml:space="preserve">
+    <value>رده‌ی سنی</value>
+  </data>
+  <data name="Dev.Option.Child" xml:space="preserve">
+    <value>کودک</value>
+  </data>
+  <data name="Dev.Option.Teen" xml:space="preserve">
+    <value>نوجوان</value>
+  </data>
+  <data name="Dev.Option.Youth" xml:space="preserve">
+    <value>جوان</value>
+  </data>
+  <data name="Dev.Option.Adult" xml:space="preserve">
+    <value>بزرگسال</value>
+  </data>
+  <data name="Dev.Field.Message" xml:space="preserve">
+    <value>پیام</value>
+  </data>
+  <data name="Dev.Field.Agree" xml:space="preserve">
+    <value>قوانین را خوانده‌ام</value>
+  </data>
+  <data name="Dev.Section.Tags" xml:space="preserve">
+    <value>برچسب‌ها</value>
+  </data>
+  <data name="Dev.Tag1" xml:space="preserve">
+    <value>تبلیغات</value>
+  </data>
+  <data name="Dev.Tag2" xml:space="preserve">
+    <value>سواد رسانه‌ای</value>
+  </data>
+  <data name="Dev.Tag3" xml:space="preserve">
+    <value>تاریخ معاصر</value>
+  </data>
+  <data name="Dev.Section.Modal" xml:space="preserve">
+    <value>مودال</value>
+  </data>
+  <data name="Dev.Modal.Open" xml:space="preserve">
+    <value>باز کردن مودال</value>
+  </data>
+  <data name="Dev.Modal.Title" xml:space="preserve">
+    <value>عنوان مودال</value>
+  </data>
+  <data name="Dev.Modal.Body" xml:space="preserve">
+    <value>این یک پنجره‌ی نمونه است.</value>
+  </data>
+  <data name="Dev.Section.Breadcrumb" xml:space="preserve">
+    <value>نوار مسیر</value>
+  </data>
+  <data name="Dev.Crumb.Home" xml:space="preserve">
+    <value>خانه</value>
+  </data>
+  <data name="Dev.Crumb.Content" xml:space="preserve">
+    <value>بانک محتوا</value>
+  </data>
+  <data name="Dev.Crumb.Current" xml:space="preserve">
+    <value>ویدیو</value>
+  </data>
+  <data name="Dev.Section.Pagination" xml:space="preserve">
+    <value>صفحه‌بندی</value>
+  </data>
+  <data name="Dev.Section.Alerts" xml:space="preserve">
+    <value>پیام‌ها</value>
+  </data>
+  <data name="Dev.Alert.Info" xml:space="preserve">
+    <value>این یک پیام اطلاع‌رسانی است.</value>
+  </data>
+  <data name="Dev.Alert.Success" xml:space="preserve">
+    <value>عملیات با موفقیت انجام شد.</value>
+  </data>
+  <data name="Dev.Alert.Warning" xml:space="preserve">
+    <value>این یک هشدار است.</value>
+  </data>
+  <data name="Dev.Alert.Danger" xml:space="preserve">
+    <value>خطایی رخ داد.</value>
+  </data>
+  <data name="Dev.Section.Table" xml:space="preserve">
+    <value>جدول</value>
+  </data>
+  <data name="Dev.Col.Title" xml:space="preserve">
+    <value>عنوان</value>
+  </data>
+  <data name="Dev.Col.Format" xml:space="preserve">
+    <value>قالب</value>
+  </data>
+  <data name="Dev.Col.Views" xml:space="preserve">
+    <value>بازدید</value>
+  </data>
+  <data name="Dev.Section.Palette" xml:space="preserve">
+    <value>پالت رنگ</value>
+  </data>
+</root>

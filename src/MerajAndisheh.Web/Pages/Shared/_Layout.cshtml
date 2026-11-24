@@ -1,52 +1,94 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+@using MerajAndisheh.Web.Theming
+@inject IThemeResolver Themes
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="@Themes.Resolve(Context)">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MerajAndisheh.Web</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MerajAndisheh.Web.styles.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - @L["App.Name"]</title>
+    <link rel="stylesheet" href="~/css/tokens.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    @await RenderSectionAsync("Head", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">MerajAndisheh.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <a class="skip-link" href="#main">@L["Common.SkipToContent"]</a>
 
-    <footer class="border-top footer text-muted">
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="brand" asp-page="/Index">
+                <span class="brand__mark" aria-hidden="true"></span>
+                <span class="brand__name">@L["App.Name"]</span>
+            </a>
+
+            <form class="search" role="search" action="/search" method="get">
+                <input class="field__input" type="search" name="q" placeholder="@L["Header.SearchPlaceholder"]" aria-label="@L["Common.Search"]" autocomplete="off" />
+                <button class="btn btn--primary btn--sm" type="submit">@L["Common.Search"]</button>
+            </form>
+
+            <div class="site-header__actions">
+                <button class="btn btn--secondary btn--sm" type="button">@L["Header.AgeGroup"]</button>
+                <a class="btn btn--ghost btn--sm" href="#">@L["Header.Favorites"]</a>
+                <a class="btn btn--primary btn--sm" href="#">@L["Header.Login"]</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="site-nav" aria-label="@L["Nav.Label"]">
+        <div class="container site-nav__inner">
+            <button class="btn btn--secondary btn--sm nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav-list">@L["Nav.Menu"]</button>
+            <ul id="site-nav-list" class="site-nav__list">
+                <li>
+                    <button class="site-nav__link" type="button" data-menu-toggle aria-expanded="false" aria-controls="mega-menu">@L["Nav.Categories"]</button>
+                    <div id="mega-menu" class="mega" hidden>
+                        <ul class="mega__list">
+                            <li><a href="#">@L["Mega.Topic1"]</a></li>
+                            <li><a href="#">@L["Mega.Topic2"]</a></li>
+                            <li><a href="#">@L["Mega.Topic3"]</a></li>
+                            <li><a href="#">@L["Mega.Topic4"]</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="site-nav__link" asp-page="/Index">@L["Nav.Home"]</a></li>
+                <li><a class="site-nav__link" href="#">@L["Nav.Content"]</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main" class="container site-main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
         <div class="container">
-            &copy; 2026 - MerajAndisheh.Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <div class="site-footer__grid">
+                <section>
+                    <h2>@L["Footer.AboutTitle"]</h2>
+                    <p>@L["Footer.AboutText"]</p>
+                </section>
+                <section>
+                    <h2>@L["Footer.LinksTitle"]</h2>
+                    <ul>
+                        <li><a asp-page="/Index">@L["Nav.Home"]</a></li>
+                        <li><a href="#">@L["Nav.Content"]</a></li>
+                        <li><a href="#">@L["Footer.About"]</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>@L["Footer.ContactTitle"]</h2>
+                    <ul>
+                        <li><a href="#">@L["Footer.Contact"]</a></li>
+                        <li><a href="#">@L["Footer.Terms"]</a></li>
+                        <li><a href="#">@L["Footer.Privacy"]</a></li>
+                    </ul>
+                </section>
+            </div>
+            <p class="site-footer__copy">@L["Footer.Copyright"]</p>
         </div>
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script src="~/js/ui.js" asp-append-version="true" defer></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

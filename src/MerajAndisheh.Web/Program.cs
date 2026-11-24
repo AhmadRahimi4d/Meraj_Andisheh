@@ -1,5 +1,7 @@
 using MerajAndisheh.Infrastructure;
 using MerajAndisheh.Infrastructure.Data;
+using MerajAndisheh.Web.Theming;
+using Microsoft.AspNetCore.Builder;
 using Serilog;
 
 // لاگر اولیه: اگر برنامه پیش از خواندن تنظیمات خراب شود، خطا دیده شود.
@@ -19,6 +21,12 @@ try
 
     builder.Services.AddRazorPages();
 
+    // مرحله‌ی ۲: متن‌های رابط از فایل منابع (Resources/SharedResource.resx)
+    builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+    // مرحله‌ی ۲: تعیین تم صفحه (مرحله‌ی ۱۱ بر پایه‌ی رده‌ی سنی می‌شود)
+    builder.Services.AddSingleton<IThemeResolver, ThemeResolver>();
+
     var connectionString = builder.Configuration.GetConnectionString("Default");
     if (string.IsNullOrWhiteSpace(connectionString))
         throw new InvalidOperationException("ConnectionStrings:Default is not set.");
@@ -33,6 +41,14 @@ try
     }
 
     app.UseHttpsRedirection();
+
+    // مرحله‌ی ۲: فرهنگ پیش‌فرض فارسی. زبان دوم در مرحله‌ی ۳۰ به این فهرست اضافه می‌شود.
+    var supportedCultures = new[] { "fa" };
+    app.UseRequestLocalization(new RequestLocalizationOptions()
+        .SetDefaultCulture("fa")
+        .AddSupportedCultures(supportedCultures)
+        .AddSupportedUICultures(supportedCultures));
+
     app.UseRouting();
     app.UseAuthorization();
 

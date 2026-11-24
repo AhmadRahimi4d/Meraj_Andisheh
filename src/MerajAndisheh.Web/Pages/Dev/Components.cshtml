@@ -1,0 +1,195 @@
+@page "/dev/components"
+@model MerajAndisheh.Web.Pages.Dev.ComponentsModel
+@{
+    ViewData["Title"] = L["Dev.Title"].Value;
+
+    var tokens = new[]
+    {
+        "color-bg", "color-surface", "color-primary", "color-on-primary", "color-accent",
+        "color-text", "color-muted", "color-link", "color-focus", "color-border", "color-control-border"
+    };
+    var rows = new[]
+    {
+        (Title: L["Dev.Card.Title1"].Value, Format: L["Format.Video"].Value, Views: 1240),
+        (Title: L["Dev.Card.Title2"].Value, Format: L["Format.Article"].Value, Views: 860),
+        (Title: L["Dev.Card.Title3"].Value, Format: L["Format.Audio"].Value, Views: 415)
+    };
+}
+
+<h1>@L["Dev.Title"]</h1>
+
+<section class="section">
+    <h2>@L["Dev.Theme.Title"]</h2>
+    <div class="cluster">
+        <a class="btn btn--secondary" href="?theme=playful">@L["Dev.Theme.Playful"]</a>
+        <a class="btn btn--secondary" href="?theme=modern">@L["Dev.Theme.Modern"]</a>
+        <a class="btn btn--secondary" href="?theme=editorial">@L["Dev.Theme.Editorial"]</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Buttons"]</h2>
+    <div class="cluster">
+        <button class="btn btn--primary" type="button">@L["Dev.Btn.Primary"]</button>
+        <button class="btn btn--secondary" type="button">@L["Dev.Btn.Secondary"]</button>
+        <button class="btn btn--ghost" type="button">@L["Dev.Btn.Ghost"]</button>
+        <button class="btn btn--primary" type="button" disabled>@L["Dev.Btn.Disabled"]</button>
+        <button class="btn btn--primary btn--sm" type="button">@L["Dev.Btn.Small"]</button>
+        <button class="btn btn--primary btn--lg" type="button">@L["Dev.Btn.Large"]</button>
+    </div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Cards"]</h2>
+    <div class="grid">
+        <article class="card">
+            <div class="card__media" role="img" aria-label="@L["Dev.Card.Title1"]"></div>
+            <div class="card__body">
+                <span class="badge">@L["Format.Video"]</span>
+                <h3 class="card__title"><a href="#">@L["Dev.Card.Title1"]</a></h3>
+                <div class="card__meta"><span>@L["Dev.Card.Minutes", 12]</span></div>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card__media" role="img" aria-label="@L["Dev.Card.Title2"]"></div>
+            <div class="card__body">
+                <span class="badge">@L["Format.Article"]</span>
+                <h3 class="card__title"><a href="#">@L["Dev.Card.Title2"]</a></h3>
+                <div class="card__meta"><span>@L["Dev.Card.Minutes", 7]</span></div>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card__media" role="img" aria-label="@L["Dev.Card.Title3"]"></div>
+            <div class="card__body">
+                <span class="badge">@L["Format.Audio"]</span>
+                <h3 class="card__title"><a href="#">@L["Dev.Card.Title3"]</a></h3>
+                <div class="card__meta"><span>@L["Dev.Card.Minutes", 25]</span></div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Forms"]</h2>
+    <div class="stack" style="max-width: 28rem;">
+        <div class="field">
+            <label class="field__label" for="dev-name">@L["Dev.Field.Name"]</label>
+            <input class="field__input" id="dev-name" type="text" />
+            <span class="field__help">@L["Dev.Field.NameHelp"]</span>
+        </div>
+        <div class="field is-invalid">
+            <label class="field__label" for="dev-email">@L["Dev.Field.Email"]</label>
+            <input class="field__input" id="dev-email" type="email" dir="ltr" aria-invalid="true" />
+            <span class="field__error">@L["Dev.Field.EmailError"]</span>
+        </div>
+        <div class="field">
+            <label class="field__label" for="dev-age">@L["Dev.Field.AgeGroup"]</label>
+            <select class="field__input" id="dev-age">
+                <option>@L["Dev.Option.Child"]</option>
+                <option>@L["Dev.Option.Teen"]</option>
+                <option>@L["Dev.Option.Youth"]</option>
+                <option>@L["Dev.Option.Adult"]</option>
+            </select>
+        </div>
+        <div class="field">
+            <label class="field__label" for="dev-message">@L["Dev.Field.Message"]</label>
+            <textarea class="field__input" id="dev-message"></textarea>
+        </div>
+        <div class="field field--check">
+            <input id="dev-agree" type="checkbox" />
+            <label for="dev-agree">@L["Dev.Field.Agree"]</label>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Tags"]</h2>
+    <div class="cluster">
+        <a class="tag" href="#">@L["Dev.Tag1"]</a>
+        <a class="tag" href="#">@L["Dev.Tag2"]</a>
+        <span class="tag">@L["Dev.Tag3"]</span>
+    </div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Modal"]</h2>
+    <button class="btn btn--primary" type="button" data-modal-open="demo-modal">@L["Dev.Modal.Open"]</button>
+    <dialog id="demo-modal" class="modal" aria-labelledby="demo-modal-title">
+        <div class="modal__header"><h2 id="demo-modal-title">@L["Dev.Modal.Title"]</h2></div>
+        <div class="modal__body"><p>@L["Dev.Modal.Body"]</p></div>
+        <div class="modal__footer">
+            <button class="btn btn--secondary" type="button" data-modal-close>@L["Common.Close"]</button>
+        </div>
+    </dialog>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Breadcrumb"]</h2>
+    <nav aria-label="@L["Dev.Section.Breadcrumb"]">
+        <ol class="breadcrumb">
+            <li><a href="#">@L["Dev.Crumb.Home"]</a></li>
+            <li><a href="#">@L["Dev.Crumb.Content"]</a></li>
+            <li aria-current="page">@L["Dev.Crumb.Current"]</li>
+        </ol>
+    </nav>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Pagination"]</h2>
+    <nav aria-label="@L["Dev.Section.Pagination"]">
+        <ul class="pagination">
+            <li><span aria-disabled="true">@L["Pagination.Prev"]</span></li>
+            <li><a href="#" aria-current="page">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">@L["Pagination.Next"]</a></li>
+        </ul>
+    </nav>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Alerts"]</h2>
+    <div class="alert alert--info" role="status"><span>@L["Dev.Alert.Info"]</span><button class="alert__close" type="button" data-alert-dismiss aria-label="@L["Common.Close"]">&times;</button></div>
+    <div class="alert alert--success" role="status"><span>@L["Dev.Alert.Success"]</span><button class="alert__close" type="button" data-alert-dismiss aria-label="@L["Common.Close"]">&times;</button></div>
+    <div class="alert alert--warning" role="status"><span>@L["Dev.Alert.Warning"]</span><button class="alert__close" type="button" data-alert-dismiss aria-label="@L["Common.Close"]">&times;</button></div>
+    <div class="alert alert--danger" role="alert"><span>@L["Dev.Alert.Danger"]</span><button class="alert__close" type="button" data-alert-dismiss aria-label="@L["Common.Close"]">&times;</button></div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Table"]</h2>
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">@L["Dev.Col.Title"]</th>
+                    <th scope="col">@L["Dev.Col.Format"]</th>
+                    <th scope="col">@L["Dev.Col.Views"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in rows)
+                {
+                    <tr>
+                        <td>@row.Title</td>
+                        <td>@row.Format</td>
+                        <td>@row.Views</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="section">
+    <h2>@L["Dev.Section.Palette"]</h2>
+    <div class="grid">
+        @foreach (var token in tokens)
+        {
+            var cssName = "--" + token;
+            <div class="swatch">
+                <span class="swatch__chip" style="background: var(@cssName)"></span>
+                <code>@cssName</code>
+            </div>
+        }
+    </div>
+</section>

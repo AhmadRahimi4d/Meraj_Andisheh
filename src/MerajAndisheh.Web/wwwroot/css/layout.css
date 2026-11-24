@@ -1,0 +1,128 @@
+/* layout.css — هدر، ناوبری، فوتر و شبکه‌ی صفحه. همه‌جا از ویژگی‌های منطقی (inline-start/end) برای راست‌به‌چپ استفاده شده. */
+
+.container {
+  width: min(100% - 2rem, var(--container-width));
+  margin-inline: auto;
+}
+
+.site-main { min-height: 60vh; padding-block: var(--space-8); }
+
+.page-intro {
+  padding: var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- هدر چسبان ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.brand__mark {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+.search { display: flex; gap: var(--space-2); max-width: 36rem; width: 100%; margin-inline: auto; }
+.search .field__input { flex: 1; min-width: 0; }
+
+.site-header__actions { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+
+/* ---------- نوار ناوبری و مگامنو ---------- */
+.site-nav { background: var(--color-bg); border-bottom: 1px solid var(--color-border); position: relative; }
+.site-nav__inner { position: relative; display: flex; align-items: center; padding-block: var(--space-2); }
+.site-nav__list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: var(--space-1) var(--space-4);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.site-nav__link:hover { background: color-mix(in srgb, var(--color-primary) 12%, var(--color-bg)); }
+
+.nav-toggle { display: none; }
+
+.mega {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 100%;
+  z-index: 60;
+  width: min(100%, 40rem);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.mega__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--space-2); }
+.mega__list a { display: block; padding: var(--space-2) var(--space-3); border-radius: var(--radius-control); }
+
+/* ---------- فوتر ۳ ستونه ---------- */
+.site-footer {
+  margin-top: var(--space-12);
+  padding-block: var(--space-8);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+.site-footer__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); }
+.site-footer h2 { font-size: 1.05rem; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer li { margin-bottom: var(--space-2); }
+.site-footer__copy { margin: var(--space-8) 0 0; padding-top: var(--space-4); border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: 0.9rem; }
+
+/* ---------- شبکه‌ی کارت‌ها و چیدمان کمکی ---------- */
+.grid { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); }
+.stack > * + * { margin-top: var(--space-4); }
+.cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.section { margin-bottom: var(--space-12); }
+
+/* ---------- موبایل ---------- */
+@media (max-width: 47.9375rem) {
+  .site-header__inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+  .search { max-width: none; }
+
+  .nav-toggle { display: inline-flex; }
+  .site-nav__inner { flex-wrap: wrap; gap: var(--space-2); }
+  .site-nav__list { display: none; width: 100%; flex-direction: column; align-items: stretch; }
+  .site-nav__list.is-open { display: flex; }
+  .site-nav__link { width: 100%; }
+  .mega { position: static; width: 100%; margin-top: var(--space-2); }
+
+  .site-footer__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+  .site-main { padding-block: var(--space-6); }
+  .page-intro { padding: var(--space-4); }
+}

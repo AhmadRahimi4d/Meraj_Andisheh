@@ -1,0 +1,79 @@
+/*
+  tokens.css — فقط متغیرهای سه تم سنی (بخش ۷.۱ سند).
+  هر تم با ویژگی data-theme روی تگ html انتخاب می‌شود.
+  قاعده: درون بلوک‌های تم فقط تعریف متغیر باشد و داخل کامنت‌ها کروشه‌ی باز و بسته نباشد
+  (تست کنتراست این فایل را می‌خواند و تجزیه می‌کند).
+
+  اصلاح کنتراست نسبت به سند: --color-on-primary (رنگ متن روی دکمه) و --color-link اضافه شد،
+  چون متن سفید روی نارنجی (۲.۶) و بنفش اولیه (۴.۳۵) معیار ۴.۵ را رد می‌کرد.
+*/
+
+/* رسمی — بزرگسال (تم پیش‌فرض) */
+:root,
+[data-theme="editorial"] {
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-primary: #14213D;
+  --color-on-primary: #FFFFFF;
+  --color-accent: #10B981;
+  --color-text: #1E293B;
+  --color-muted: #64748B;
+  --color-link: #14213D;
+  --color-focus: #1D4ED8;
+  --color-border: #CBD5E1;
+  --color-control-border: #748399;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #DC2626;
+  --color-info: #2563EB;
+  --radius-card: 8px;
+  --radius-control: 6px;
+  --font-scale: 1;
+  --shadow-card: 0 1px 3px rgb(15 23 42 / 0.10);
+}
+
+/* بازیگوش — کودک */
+[data-theme="playful"] {
+  --color-bg: #FFF8EC;
+  --color-surface: #FFFFFF;
+  --color-primary: #FF7A00;
+  --color-on-primary: #2B2B3A;
+  --color-accent: #1FB6FF;
+  --color-text: #2B2B3A;
+  --color-muted: #6B6B80;
+  --color-link: #B45309;
+  --color-focus: #9A3F00;
+  --color-border: #EBDCC2;
+  --color-control-border: #857458;
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+  --color-danger: #DC2626;
+  --color-info: #0284C7;
+  --radius-card: 24px;
+  --radius-control: 16px;
+  --font-scale: 1.125;
+  --shadow-card: 0 4px 0 rgb(255 122 0 / 0.18);
+}
+
+/* مدرن — نوجوان و جوان */
+[data-theme="modern"] {
+  --color-bg: #0F1226;
+  --color-surface: #1A1F3D;
+  --color-primary: #7050FF;
+  --color-on-primary: #FFFFFF;
+  --color-accent: #00E0B8;
+  --color-text: #F2F4FF;
+  --color-muted: #9AA3C7;
+  --color-link: #B3A6FF;
+  --color-focus: #B3A6FF;
+  --color-border: #343B66;
+  --color-control-border: #7782B8;
+  --color-success: #00E0B8;
+  --color-warning: #FBBF24;
+  --color-danger: #FB7185;
+  --color-info: #60A5FA;
+  --radius-card: 14px;
+  --radius-control: 10px;
+  --font-scale: 1;
+  --shadow-card: 0 2px 14px rgb(0 0 0 / 0.35);
+}
