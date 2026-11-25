@@ -1,13 +1,17 @@
 using MerajAndisheh.Core.Domain.Entities;
+using MerajAndisheh.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MerajAndisheh.Infrastructure.Data;
 
 /// <summary>
-/// نقطه‌ی دسترسی به دیتابیس (مثل RoomDatabase در اندروید).
+/// نقطه‌ی دسترسی به دیتابیس (مثل RoomDatabase در اندروید) + جدول‌های کاربران و نقش‌ها (Identity).
 /// تنظیمات هر جدول در یک فایل جدا در پوشه‌ی Configurations است.
 /// </summary>
-public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
+public class AppDbContext(DbContextOptions<AppDbContext> options)
+    : IdentityDbContext<AppUser, AppRole, int>(options)
 {
     // طبقه‌بندی
     public DbSet<AgeGroup> AgeGroups => Set<AgeGroup>();
@@ -31,6 +35,17 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
+        // نام جدول‌های Identity (به‌جای AspNet...)
+        modelBuilder.Entity<AppUser>().ToTable("AppUsers");
+        modelBuilder.Entity<AppRole>().ToTable("AppRoles");
+        modelBuilder.Entity<IdentityUserRole<int>>().ToTable("AppUserRoles");
+        modelBuilder.Entity<IdentityUserClaim<int>>().ToTable("AppUserClaims");
+        modelBuilder.Entity<IdentityUserLogin<int>>().ToTable("AppUserLogins");
+        modelBuilder.Entity<IdentityUserToken<int>>().ToTable("AppUserTokens");
+        modelBuilder.Entity<IdentityRoleClaim<int>>().ToTable("AppRoleClaims");
+
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 }

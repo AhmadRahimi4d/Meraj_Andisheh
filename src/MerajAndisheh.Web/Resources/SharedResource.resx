@@ -337,4 +337,184 @@
   <data name="Dev.Section.Palette" xml:space="preserve">
     <value>پالت رنگ</value>
   </data>
+  <data name="Header.Logout" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Header.Account" xml:space="preserve">
+    <value>حساب کاربری</value>
+  </data>
+  <data name="Account.Field.Password" xml:space="preserve">
+    <value>رمز عبور</value>
+  </data>
+  <data name="Account.Field.NewPassword" xml:space="preserve">
+    <value>رمز عبور جدید</value>
+  </data>
+  <data name="Account.Login.Title" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="Account.Login.Heading" xml:space="preserve">
+    <value>ورود به حساب کاربری</value>
+  </data>
+  <data name="Account.Login.Field" xml:space="preserve">
+    <value>ایمیل یا نام کاربری</value>
+  </data>
+  <data name="Account.Login.Remember" xml:space="preserve">
+    <value>مرا به خاطر بسپار</value>
+  </data>
+  <data name="Account.Login.Submit" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="Account.Login.ForgotLink" xml:space="preserve">
+    <value>رمز عبور را فراموش کرده‌ام</value>
+  </data>
+  <data name="Account.Login.RegisterLink" xml:space="preserve">
+    <value>حساب ندارم؛ ثبت‌نام</value>
+  </data>
+  <data name="Account.Login.ResendLink" xml:space="preserve">
+    <value>ارسال دوباره‌ی لینک تأیید ایمیل</value>
+  </data>
+  <data name="Account.Register.Title" xml:space="preserve">
+    <value>ثبت‌نام</value>
+  </data>
+  <data name="Account.Register.Heading" xml:space="preserve">
+    <value>ساخت حساب کاربری</value>
+  </data>
+  <data name="Account.Register.DisplayName" xml:space="preserve">
+    <value>نام نمایشی</value>
+  </data>
+  <data name="Account.Register.DisplayNameHelp" xml:space="preserve">
+    <value>لقب شما؛ نه نام واقعی. فقط همین نام در نظرها دیده می‌شود.</value>
+  </data>
+  <data name="Account.Register.AgeGroup" xml:space="preserve">
+    <value>رده‌ی سنی</value>
+  </data>
+  <data name="Account.Register.AgeGroupPlaceholder" xml:space="preserve">
+    <value>انتخاب کنید</value>
+  </data>
+  <data name="Account.Register.Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="Account.Register.PasswordHelp" xml:space="preserve">
+    <value>حداقل {0} نویسه</value>
+  </data>
+  <data name="Account.Register.ConfirmPassword" xml:space="preserve">
+    <value>تکرار رمز عبور</value>
+  </data>
+  <data name="Account.Register.Submit" xml:space="preserve">
+    <value>ثبت‌نام</value>
+  </data>
+  <data name="Account.Register.LoginLink" xml:space="preserve">
+    <value>حساب دارم؛ ورود</value>
+  </data>
+  <data name="Account.CheckEmail.Title" xml:space="preserve">
+    <value>ایمیل خود را بررسی کن</value>
+  </data>
+  <data name="Account.CheckEmail.Register" xml:space="preserve">
+    <value>لینک تأیید به ایمیل شما ارسال شد. پس از تأیید ایمیل می‌توانید وارد شوید.</value>
+  </data>
+  <data name="Account.CheckEmail.Reset" xml:space="preserve">
+    <value>اگر این ایمیل در سایت ثبت شده باشد، لینک بازنشانی رمز عبور برایتان ارسال می‌شود.</value>
+  </data>
+  <data name="Account.CheckEmail.Confirm" xml:space="preserve">
+    <value>اگر حسابی با این ایمیل منتظر تأیید باشد، لینک تأیید دوباره ارسال می‌شود.</value>
+  </data>
+  <data name="Account.CheckEmail.LoginLink" xml:space="preserve">
+    <value>رفتن به صفحه‌ی ورود</value>
+  </data>
+  <data name="Account.ConfirmEmail.Title" xml:space="preserve">
+    <value>تأیید ایمیل</value>
+  </data>
+  <data name="Account.ConfirmEmail.Success" xml:space="preserve">
+    <value>ایمیل شما تأیید شد. حالا می‌توانید وارد شوید.</value>
+  </data>
+  <data name="Account.ConfirmEmail.Failure" xml:space="preserve">
+    <value>لینک تأیید نامعتبر یا منقضی شده است.</value>
+  </data>
+  <data name="Account.Resend.Title" xml:space="preserve">
+    <value>ارسال دوباره‌ی لینک تأیید</value>
+  </data>
+  <data name="Account.Resend.Submit" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Account.Forgot.Title" xml:space="preserve">
+    <value>فراموشی رمز عبور</value>
+  </data>
+  <data name="Account.Forgot.Description" xml:space="preserve">
+    <value>ایمیل حساب خود را وارد کن تا لینک بازنشانی رمز عبور برایت ارسال شود.</value>
+  </data>
+  <data name="Account.Forgot.Submit" xml:space="preserve">
+    <value>ارسال لینک</value>
+  </data>
+  <data name="Account.Reset.Title" xml:space="preserve">
+    <value>بازنشانی رمز عبور</value>
+  </data>
+  <data name="Account.Reset.Submit" xml:space="preserve">
+    <value>ثبت رمز عبور جدید</value>
+  </data>
+  <data name="Account.Reset.Success" xml:space="preserve">
+    <value>رمز عبور شما تغییر کرد. حالا می‌توانید وارد شوید.</value>
+  </data>
+  <data name="Account.Change.Title" xml:space="preserve">
+    <value>تغییر رمز عبور</value>
+  </data>
+  <data name="Account.Change.MustChangeNotice" xml:space="preserve">
+    <value>برای ادامه باید رمز عبور موقت خود را تغییر دهید.</value>
+  </data>
+  <data name="Account.Change.Current" xml:space="preserve">
+    <value>رمز عبور فعلی</value>
+  </data>
+  <data name="Account.Change.Submit" xml:space="preserve">
+    <value>تغییر رمز عبور</value>
+  </data>
+  <data name="Account.Error.InvalidCredentials" xml:space="preserve">
+    <value>ایمیل / نام کاربری یا رمز عبور درست نیست.</value>
+  </data>
+  <data name="Account.Error.LockedOut" xml:space="preserve">
+    <value>حساب شما به‌دلیل تلاش‌های ناموفق، {0} دقیقه موقتاً قفل شده است.</value>
+  </data>
+  <data name="Account.Error.EmailNotConfirmed" xml:space="preserve">
+    <value>ایمیل شما هنوز تأیید نشده است. لینک تأیید را از ایمیل خود باز کنید.</value>
+  </data>
+  <data name="Account.Error.EmailInvalid" xml:space="preserve">
+    <value>ایمیل واردشده معتبر نیست.</value>
+  </data>
+  <data name="Account.Error.EmailTaken" xml:space="preserve">
+    <value>این ایمیل قبلاً ثبت شده است.</value>
+  </data>
+  <data name="Account.Error.PasswordTooShort" xml:space="preserve">
+    <value>رمز عبور باید دست‌کم {0} نویسه باشد.</value>
+  </data>
+  <data name="Account.Error.PasswordMismatch" xml:space="preserve">
+    <value>رمز عبور و تکرار آن یکسان نیست.</value>
+  </data>
+  <data name="Account.Error.DisplayNameInvalid" xml:space="preserve">
+    <value>نام نمایشی الزامی است و حداکثر {0} نویسه می‌تواند باشد.</value>
+  </data>
+  <data name="Account.Error.AgeGroupInvalid" xml:space="preserve">
+    <value>رده‌ی سنی را انتخاب کنید.</value>
+  </data>
+  <data name="Account.Error.CurrentPasswordWrong" xml:space="preserve">
+    <value>رمز عبور فعلی درست نیست.</value>
+  </data>
+  <data name="Account.Error.PasswordSame" xml:space="preserve">
+    <value>رمز عبور جدید باید با رمز فعلی فرق کند.</value>
+  </data>
+  <data name="Account.Error.TokenInvalid" xml:space="preserve">
+    <value>لینک نامعتبر یا منقضی شده است.</value>
+  </data>
+  <data name="Account.Error.Unknown" xml:space="preserve">
+    <value>خطایی رخ داد. دوباره تلاش کن.</value>
+  </data>
+  <data name="Email.Confirm.Subject" xml:space="preserve">
+    <value>تأیید ایمیل — معراج اندیشه</value>
+  </data>
+  <data name="Email.Confirm.Body" xml:space="preserve">
+    <value>سلام {0}، برای تأیید ایمیل خود روی لینک زیر بزن:</value>
+  </data>
+  <data name="Email.Reset.Subject" xml:space="preserve">
+    <value>بازنشانی رمز عبور — معراج اندیشه</value>
+  </data>
+  <data name="Email.Reset.Body" xml:space="preserve">
+    <value>سلام {0}، برای تعیین رمز عبور جدید روی لینک زیر بزن. اگر این درخواست از طرف تو نبود، این ایمیل را نادیده بگیر:</value>
+  </data>
 </root>

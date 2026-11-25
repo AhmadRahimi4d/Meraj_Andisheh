@@ -1,0 +1,17 @@
+@page "/account/resend-confirmation"
+@model MerajAndisheh.Web.Pages.Account.ResendConfirmationModel
+@{
+    ViewData["Title"] = L["Account.Resend.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.Resend.Title"]</h1>
+
+    <form method="post" novalidate>
+        <div class="field">
+            <label class="field__label" asp-for="Input.Email">@L["Account.Register.Email"]</label>
+            <input class="field__input" asp-for="Input.Email" type="email" dir="ltr" autocomplete="email" />
+        </div>
+        <button class="btn btn--primary" type="submit">@L["Account.Resend.Submit"]</button>
+    </form>
+</section>

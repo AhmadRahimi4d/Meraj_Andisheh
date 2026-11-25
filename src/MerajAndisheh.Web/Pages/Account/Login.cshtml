@@ -1,0 +1,43 @@
+@page "/account/login"
+@model MerajAndisheh.Web.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = L["Account.Login.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.Login.Heading"]</h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert--danger" role="alert"></div>
+    }
+
+    @if (Model.ShowResendLink)
+    {
+        <p><a asp-page="/Account/ResendConfirmation">@L["Account.Login.ResendLink"]</a></p>
+    }
+
+    <form method="post" novalidate>
+        <input type="hidden" asp-for="ReturnUrl" />
+
+        <div class="field">
+            <label class="field__label" asp-for="Input.Login">@L["Account.Login.Field"]</label>
+            <input class="field__input" asp-for="Input.Login" dir="ltr" autocomplete="username" />
+        </div>
+        <div class="field">
+            <label class="field__label" asp-for="Input.Password">@L["Account.Field.Password"]</label>
+            <input class="field__input" asp-for="Input.Password" type="password" autocomplete="current-password" />
+        </div>
+        <div class="field field--check">
+            <input asp-for="Input.RememberMe" type="checkbox" />
+            <label asp-for="Input.RememberMe">@L["Account.Login.Remember"]</label>
+        </div>
+
+        <button class="btn btn--primary" type="submit">@L["Account.Login.Submit"]</button>
+    </form>
+
+    <ul class="auth-links">
+        <li><a asp-page="/Account/ForgotPassword">@L["Account.Login.ForgotLink"]</a></li>
+        <li><a asp-page="/Account/Register">@L["Account.Login.RegisterLink"]</a></li>
+    </ul>
+</section>

@@ -1,5 +1,6 @@
 using MerajAndisheh.Core.Domain;
 using MerajAndisheh.Core.Domain.Entities;
+using MerajAndisheh.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -35,6 +36,10 @@ public class ContentItemConfiguration : IEntityTypeConfiguration<ContentItem>
             .HasForeignKey(c => c.ImpactLevelId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // CreatedById: کلید خارجی در مرحله‌ی ۴ (جدول کاربران) اضافه می‌شود.
+        // مرحله‌ی ۴: کلید خارجی سازنده به جدول کاربران
+        builder.HasOne<AppUser>()
+            .WithMany()
+            .HasForeignKey(c => c.CreatedById)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

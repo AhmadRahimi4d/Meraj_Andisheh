@@ -1,0 +1,20 @@
+@page "/account/confirm-email"
+@model MerajAndisheh.Web.Pages.Account.ConfirmEmailModel
+@{
+    ViewData["Title"] = L["Account.ConfirmEmail.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.ConfirmEmail.Title"]</h1>
+
+    @if (Model.Succeeded)
+    {
+        <div class="alert alert--success" role="status"><span>@L["Account.ConfirmEmail.Success"]</span></div>
+        <p><a class="btn btn--primary" asp-page="/Account/Login">@L["Account.Login.Submit"]</a></p>
+    }
+    else
+    {
+        <div class="alert alert--danger" role="alert"><span>@L["Account.ConfirmEmail.Failure"]</span></div>
+        <p><a asp-page="/Account/ResendConfirmation">@L["Account.Login.ResendLink"]</a></p>
+    }
+</section>

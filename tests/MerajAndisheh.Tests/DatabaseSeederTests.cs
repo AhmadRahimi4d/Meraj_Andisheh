@@ -3,6 +3,7 @@ using MerajAndisheh.Core.Domain.Entities;
 using MerajAndisheh.Core.Domain.Enums;
 using MerajAndisheh.Core.Services;
 using MerajAndisheh.Infrastructure.Data;
+using MerajAndisheh.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 
@@ -117,21 +118,47 @@ public class DatabaseSeederTests
         using var database = new SqliteTestDatabase();
         await using var db = database.CreateContext();
 
-        db.ContentItems.Add(NewContent("مسیر-اقتصاد"));
+        // از مرحله‌ی ۴ سازنده‌ی محتوا باید کاربر واقعی باشد (کلید خارجی CreatedById)
+        var author = NewUser("author@example.com");
+        db.Users.Add(author);
         await db.SaveChangesAsync();
 
-        db.ContentItems.Add(NewContent("مسیر-اقتصاد"));
+        db.ContentItems.Add(NewContent("مسیر-اقتصاد", author.Id));
+        await db.SaveChangesAsync();
+
+        db.ContentItems.Add(NewContent("مسیر-اقتصاد", author.Id));
 
         await Assert.ThrowsAsync<DbUpdateException>(() => db.SaveChangesAsync());
     }
 
-    private static ContentItem NewContent(string slug) => new()
+    [Fact]
+    public async Task ContentItem_WithUnknownCreator_IsRejectedByDatabase()
+    {
+        using var database = new SqliteTestDatabase();
+        await using var db = database.CreateContext();
+
+        db.ContentItems.Add(NewContent("بدون-سازنده", createdById: 12345));
+
+        await Assert.ThrowsAsync<DbUpdateException>(() => db.SaveChangesAsync());
+    }
+
+    private static AppUser NewUser(string email) => new()
+    {
+        UserName = email,
+        NormalizedUserName = email.ToUpperInvariant(),
+        Email = email,
+        NormalizedEmail = email.ToUpperInvariant(),
+        DisplayName = "نویسنده",
+        CreatedAt = DateTime.UtcNow
+    };
+
+    private static ContentItem NewContent(string slug, int createdById) => new()
     {
         Title = "عنوان",
         Slug = slug,
         Summary = "خلاصه",
         Format = ContentFormat.Article,
-        CreatedById = 1,
+        CreatedById = createdById,
         CreatedAt = DateTime.UtcNow,
         UpdatedAt = DateTime.UtcNow
     };

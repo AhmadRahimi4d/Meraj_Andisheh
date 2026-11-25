@@ -1,5 +1,6 @@
 using MerajAndisheh.Core.Abstractions;
 using MerajAndisheh.Infrastructure.Data;
+using MerajAndisheh.Infrastructure.Messaging;
 using MerajAndisheh.Infrastructure.Time;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,9 @@ public static class DependencyInjection
 
         services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
         services.AddSingleton<IClock, SystemClock>();
+
+        // مرحله‌ی ۴: نسخه‌ی Dev ایمیل (نوشتن در لاگ). مرحله‌ی ۲۲ با SMTP جایگزین می‌شود.
+        services.AddSingleton<IEmailSender, LogEmailSender>();
 
         return services;
     }

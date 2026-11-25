@@ -1,3 +1,4 @@
+@using MerajAndisheh.Core.Domain
 @using MerajAndisheh.Web.Theming
 @inject IThemeResolver Themes
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
     @await RenderSectionAsync("Head", required: false)
 </head>
 <body>
@@ -30,7 +32,17 @@
             <div class="site-header__actions">
                 <button class="btn btn--secondary btn--sm" type="button">@L["Header.AgeGroup"]</button>
                 <a class="btn btn--ghost btn--sm" href="#">@L["Header.Favorites"]</a>
-                <a class="btn btn--primary btn--sm" href="#">@L["Header.Login"]</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <span class="header-user">@User.FindFirst(AppClaimTypes.DisplayName)?.Value</span>
+                    <form class="inline-form" method="post" asp-page="/Account/Logout">
+                        <button class="btn btn--secondary btn--sm" type="submit">@L["Header.Logout"]</button>
+                    </form>
+                }
+                else
+                {
+                    <a class="btn btn--primary btn--sm" asp-page="/Account/Login">@L["Header.Login"]</a>
+                }
             </div>
         </div>
     </header>

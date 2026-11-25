@@ -11,7 +11,7 @@ public sealed class SqliteTestDatabase : IDisposable
 
     public SqliteTestDatabase()
     {
-        _connection = new SqliteConnection("DataSource=:memory:");
+        _connection = new SqliteConnection("DataSource=:memory:;Foreign Keys=True");
         _connection.Open();
 
         Options = new DbContextOptionsBuilder<AppDbContext>().UseSqlite(_connection).Options;

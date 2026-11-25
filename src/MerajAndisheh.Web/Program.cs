@@ -1,5 +1,7 @@
 using MerajAndisheh.Infrastructure;
 using MerajAndisheh.Infrastructure.Data;
+using MerajAndisheh.Infrastructure.Identity;
+using MerajAndisheh.Web.Identity;
 using MerajAndisheh.Web.Theming;
 using Microsoft.AspNetCore.Builder;
 using Serilog;
@@ -32,6 +34,11 @@ try
         throw new InvalidOperationException("ConnectionStrings:Default is not set.");
     builder.Services.AddInfrastructure(connectionString);
 
+    // مرحله‌ی ۴: حساب کاربری (Identity)، کوکی ورود و ایمیل‌های حساب
+    builder.Services.AddAppIdentity();
+    builder.Services.AddAppAuthentication(builder.Environment);
+    builder.Services.AddScoped<AccountEmailComposer>();
+
     var app = builder.Build();
 
     if (!app.Environment.IsDevelopment())
@@ -50,15 +57,20 @@ try
         .AddSupportedUICultures(supportedCultures));
 
     app.UseRouting();
+
+    // مرحله‌ی ۴: شناسایی کاربر؛ سپس اجبار تغییر رمز موقت؛ سپس مجوزها
+    app.UseAuthentication();
+    app.UseMustChangePassword();
     app.UseAuthorization();
 
     app.MapStaticAssets();
     app.MapRazorPages().WithStaticAssets();
 
-    // فقط در توسعه: ساخت دیتابیس / اجرای Migrationها. در تولید، به‌روزرسانی دیتابیس دستی و کنترل‌شده است.
+    // فقط در توسعه: ساخت دیتابیس / اجرای Migrationها / داده‌ی اولیه / نقش‌ها و مدیر کل اولیه.
+    // (در تولید، به‌روزرسانی دیتابیس دستی و کنترل‌شده است؛ مرحله‌ی ۲۲)
     if (app.Environment.IsDevelopment())
     {
-        await DatabaseInitializer.InitializeAsync(app.Services);
+        await DatabaseInitializer.InitializeAsync(app.Services, app.Configuration);
     }
 
     Log.Information("برنامه‌ی معراج اندیشه شروع شد (محیط: {Environment})", app.Environment.EnvironmentName);

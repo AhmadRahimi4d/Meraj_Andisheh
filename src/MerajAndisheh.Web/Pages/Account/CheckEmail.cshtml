@@ -1,0 +1,11 @@
+@page "/account/check-email"
+@model MerajAndisheh.Web.Pages.Account.CheckEmailModel
+@{
+    ViewData["Title"] = L["Account.CheckEmail.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.CheckEmail.Title"]</h1>
+    <p>@L[Model.MessageKey]</p>
+    <p><a class="btn btn--secondary" asp-page="/Account/Login">@L["Account.CheckEmail.LoginLink"]</a></p>
+</section>

@@ -1,0 +1,48 @@
+@page "/account/register"
+@model MerajAndisheh.Web.Pages.Account.RegisterModel
+@using MerajAndisheh.Core.Domain
+@{
+    ViewData["Title"] = L["Account.Register.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.Register.Heading"]</h1>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert--danger" role="alert"></div>
+    }
+
+    <form method="post" novalidate>
+        <div class="field">
+            <label class="field__label" asp-for="Input.DisplayName">@L["Account.Register.DisplayName"]</label>
+            <input class="field__input" asp-for="Input.DisplayName" maxlength="@AccountRules.DisplayNameMaxLength" autocomplete="nickname" />
+            <span class="field__help">@L["Account.Register.DisplayNameHelp"]</span>
+        </div>
+        <div class="field">
+            <label class="field__label" asp-for="Input.AgeGroupId">@L["Account.Register.AgeGroup"]</label>
+            <select class="field__input" asp-for="Input.AgeGroupId" asp-items="Model.AgeGroups">
+                <option value="">@L["Account.Register.AgeGroupPlaceholder"]</option>
+            </select>
+        </div>
+        <div class="field">
+            <label class="field__label" asp-for="Input.Email">@L["Account.Register.Email"]</label>
+            <input class="field__input" asp-for="Input.Email" type="email" dir="ltr" autocomplete="email" />
+        </div>
+        <div class="field">
+            <label class="field__label" asp-for="Input.Password">@L["Account.Field.Password"]</label>
+            <input class="field__input" asp-for="Input.Password" type="password" autocomplete="new-password" />
+            <span class="field__help">@L["Account.Register.PasswordHelp", AccountRules.MinPasswordLength]</span>
+        </div>
+        <div class="field">
+            <label class="field__label" asp-for="Input.ConfirmPassword">@L["Account.Register.ConfirmPassword"]</label>
+            <input class="field__input" asp-for="Input.ConfirmPassword" type="password" autocomplete="new-password" />
+        </div>
+
+        <button class="btn btn--primary" type="submit">@L["Account.Register.Submit"]</button>
+    </form>
+
+    <ul class="auth-links">
+        <li><a asp-page="/Account/Login">@L["Account.Register.LoginLink"]</a></li>
+    </ul>
+</section>
