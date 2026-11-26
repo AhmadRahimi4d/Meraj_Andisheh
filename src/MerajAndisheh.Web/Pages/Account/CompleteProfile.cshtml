@@ -1,0 +1,36 @@
+@page "/account/complete-profile"
+@model MerajAndisheh.Web.Pages.Account.CompleteProfileModel
+@using MerajAndisheh.Core.Domain
+@{
+    ViewData["Title"] = L["Account.Profile.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.Profile.Title"]</h1>
+    <p>@L["Account.Profile.Description", Model.Phone ?? string.Empty]</p>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert--danger" role="alert"></div>
+    }
+
+    <form method="post" novalidate>
+        <input type="hidden" asp-for="Ticket" />
+        <input type="hidden" asp-for="ReturnUrl" />
+        <input type="hidden" asp-for="Remember" />
+
+        <div class="field">
+            <label class="field__label" asp-for="Input.DisplayName">@L["Account.Register.DisplayName"]</label>
+            <input class="field__input" asp-for="Input.DisplayName" maxlength="@AccountRules.DisplayNameMaxLength" autocomplete="nickname" autofocus />
+            <span class="field__help">@L["Account.Register.DisplayNameHelp"]</span>
+        </div>
+        <div class="field">
+            <label class="field__label" asp-for="Input.AgeGroupId">@L["Account.Register.AgeGroup"]</label>
+            <select class="field__input" asp-for="Input.AgeGroupId" asp-items="Model.AgeGroups">
+                <option value="">@L["Account.Register.AgeGroupPlaceholder"]</option>
+            </select>
+        </div>
+
+        <button class="btn btn--primary" type="submit">@L["Account.Profile.Submit"]</button>
+    </form>
+</section>

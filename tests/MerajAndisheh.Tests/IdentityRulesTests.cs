@@ -20,7 +20,9 @@ public class IdentityRulesTests
         Assert.Equal(5, options.Lockout.MaxFailedAccessAttempts);
         Assert.Equal(TimeSpan.FromMinutes(15), options.Lockout.DefaultLockoutTimeSpan);
         Assert.True(options.SignIn.RequireConfirmedEmail);
-        Assert.True(options.User.RequireUniqueEmail);
+        // مرحله‌ی ۵: خاموش تا کاربرِ ثبت‌نام‌شده با موبایل (بدون ایمیل) ساخته شود؛
+        // یکتایی و قالب ایمیل را AppUserValidator اعمال می‌کند (AppUserValidatorTests).
+        Assert.False(options.User.RequireUniqueEmail);
         Assert.True(options.Lockout.AllowedForNewUsers);
     }
 

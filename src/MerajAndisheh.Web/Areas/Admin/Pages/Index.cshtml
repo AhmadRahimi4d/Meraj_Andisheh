@@ -1,0 +1,36 @@
+@page "/admin"
+@model MerajAndisheh.Web.Areas.Admin.Pages.IndexModel
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<MerajAndisheh.Web.SharedResource> L
+@{
+    // پوسته‌ی اختصاصی پنل در مرحله‌ی ۶ می‌آید؛ تا آن زمان صفحه‌ی مستقل و ساده
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="editorial">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>@L["Panel.Placeholder.Title"] - @L["App.Name"]</title>
+    <link rel="stylesheet" href="~/css/tokens.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
+</head>
+<body>
+    <main class="container site-main">
+        <section class="page-intro auth-card">
+            <h1>@L["Panel.Placeholder.Title"]</h1>
+            <p>@L["Panel.Placeholder.Text"]</p>
+
+            <p><a class="btn btn--secondary" href="/">@L["Panel.Placeholder.Home"]</a></p>
+
+            <form class="inline-form" method="post" asp-area="" asp-page="/Account/Logout">
+                <button class="btn btn--ghost" type="submit">@L["Header.Logout"]</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

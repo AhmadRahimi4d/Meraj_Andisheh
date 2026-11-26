@@ -1,7 +1,9 @@
 using MerajAndisheh.Infrastructure;
 using MerajAndisheh.Infrastructure.Data;
 using MerajAndisheh.Infrastructure.Identity;
+using MerajAndisheh.Infrastructure.Otp;
 using MerajAndisheh.Web.Identity;
+using MerajAndisheh.Web.RateLimiting;
 using MerajAndisheh.Web.Theming;
 using Microsoft.AspNetCore.Builder;
 using Serilog;
@@ -39,6 +41,11 @@ try
     builder.Services.AddAppAuthentication(builder.Environment);
     builder.Services.AddScoped<AccountEmailComposer>();
 
+    // مرحله‌ی ۵: کلید هش کد پیامکی (Otp:HashKey از User Secrets / تنظیمات سرور)، برگه‌ی تأیید شماره و محدودیت نرخ
+    builder.Services.Configure<OtpOptions>(builder.Configuration.GetSection(OtpOptions.SectionName));
+    builder.Services.AddSingleton<OtpVerificationTicket>();
+    builder.Services.AddAppRateLimiting();
+
     var app = builder.Build();
 
     if (!app.Environment.IsDevelopment())
@@ -58,8 +65,13 @@ try
 
     app.UseRouting();
 
-    // مرحله‌ی ۴: شناسایی کاربر؛ سپس اجبار تغییر رمز موقت؛ سپس مجوزها
+    // مرحله‌ی ۵: محدودیت نرخ (برای سیاست‌های نام‌دار، پس از UseRouting)
+    app.UseRateLimiter();
+
+    // مرحله‌ی ۴: شناسایی کاربر؛ مرحله‌ی ۵: پنهان‌کردن /admin از غیرهمکاران (۴۰۴)؛
+    // سپس اجبار تغییر رمز موقت؛ سپس مجوزها
     app.UseAuthentication();
+    app.UseAdminHidden();
     app.UseMustChangePassword();
     app.UseAuthorization();
 

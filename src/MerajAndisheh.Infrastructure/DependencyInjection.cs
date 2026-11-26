@@ -1,6 +1,7 @@
 using MerajAndisheh.Core.Abstractions;
 using MerajAndisheh.Infrastructure.Data;
 using MerajAndisheh.Infrastructure.Messaging;
+using MerajAndisheh.Infrastructure.Otp;
 using MerajAndisheh.Infrastructure.Time;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,12 @@ public static class DependencyInjection
 
         // مرحله‌ی ۴: نسخه‌ی Dev ایمیل (نوشتن در لاگ). مرحله‌ی ۲۲ با SMTP جایگزین می‌شود.
         services.AddSingleton<IEmailSender, LogEmailSender>();
+
+        // مرحله‌ی ۵: نسخه‌ی Dev پیامک (نوشتن در لاگ). ارائه‌دهنده‌ی واقعی پیش از مرحله‌ی ۲۲ جایگزین می‌شود.
+        services.AddSingleton<ISmsSender, LogSmsSender>();
+
+        // مرحله‌ی ۵: کد پیامکی (OTP)
+        services.AddOtp();
 
         return services;
     }

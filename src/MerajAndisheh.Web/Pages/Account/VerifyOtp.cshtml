@@ -1,0 +1,46 @@
+@page "/account/verify-otp"
+@model MerajAndisheh.Web.Pages.Account.VerifyOtpModel
+@using MerajAndisheh.Core.Domain
+@{
+    ViewData["Title"] = L["Account.Otp.Title"].Value;
+}
+
+<section class="page-intro auth-card">
+    <h1>@L["Account.Otp.Title"]</h1>
+    <p>@L["Account.Otp.Description", OtpRules.CodeLength, Model.Phone ?? string.Empty, OtpRules.ValidityMinutes]</p>
+
+    @if (Model.NoticeKey is not null)
+    {
+        <div class="alert alert--success" role="status">@L[Model.NoticeKey]</div>
+    }
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert--danger" role="alert"></div>
+    }
+
+    <form method="post" novalidate>
+        <input type="hidden" asp-for="Phone" />
+        <input type="hidden" asp-for="ReturnUrl" />
+        <input type="hidden" asp-for="Remember" />
+
+        <div class="field">
+            <label class="field__label" asp-for="Input.Code">@L["Account.Otp.Code"]</label>
+            <input class="field__input" asp-for="Input.Code" dir="ltr" inputmode="numeric" autocomplete="one-time-code" maxlength="10" autofocus />
+        </div>
+
+        <button class="btn btn--primary" type="submit">@L["Account.Otp.Submit"]</button>
+    </form>
+
+    <form method="post" asp-page-handler="Resend" novalidate>
+        <input type="hidden" asp-for="Phone" />
+        <input type="hidden" asp-for="ReturnUrl" />
+        <input type="hidden" asp-for="Remember" />
+
+        <button class="btn btn--secondary" type="submit">@L["Account.Otp.Resend"]</button>
+    </form>
+
+    <ul class="auth-links">
+        <li><a asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl">@L["Account.Otp.ChangePhone"]</a></li>
+    </ul>
+</section>

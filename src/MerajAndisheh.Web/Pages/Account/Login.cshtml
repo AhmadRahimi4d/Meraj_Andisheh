@@ -22,9 +22,10 @@
 
         <div class="field">
             <label class="field__label" asp-for="Input.Login">@L["Account.Login.Field"]</label>
-            <input class="field__input" asp-for="Input.Login" dir="ltr" autocomplete="username" />
+            <input class="field__input" asp-for="Input.Login" dir="ltr" autocomplete="username" data-login-field />
+            <span class="field__help">@L["Account.Login.FieldHelp"]</span>
         </div>
-        <div class="field">
+        <div class="field" data-password-field>
             <label class="field__label" asp-for="Input.Password">@L["Account.Field.Password"]</label>
             <input class="field__input" asp-for="Input.Password" type="password" autocomplete="current-password" />
         </div>
@@ -41,3 +42,7 @@
         <li><a asp-page="/Account/Register">@L["Account.Login.RegisterLink"]</a></li>
     </ul>
 </section>
+
+@section Scripts {
+    <script src="~/js/login.js" asp-append-version="true" defer></script>
+}

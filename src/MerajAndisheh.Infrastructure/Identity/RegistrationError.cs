@@ -8,5 +8,9 @@ public enum RegistrationError
     EmailInvalid,
     EmailTaken,
     PasswordTooShort,
-    Unknown
+    Unknown,
+
+    // مرحله‌ی ۵ (ثبت‌نام با موبایل)
+    PhoneInvalid,
+    PhoneTaken
 }

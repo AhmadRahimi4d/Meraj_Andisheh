@@ -33,6 +33,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
     public DbSet<SiteSetting> SiteSettings => Set<SiteSetting>();
     public DbSet<FeatureFlag> FeatureFlags => Set<FeatureFlag>();
 
+    // ورود با موبایل (مرحله‌ی ۵)
+    public DbSet<OtpCode> OtpCodes => Set<OtpCode>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

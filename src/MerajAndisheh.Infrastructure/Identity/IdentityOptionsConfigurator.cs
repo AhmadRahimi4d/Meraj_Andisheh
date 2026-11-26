@@ -21,9 +21,11 @@ public static class IdentityOptionsConfigurator
         options.Lockout.MaxFailedAccessAttempts = AccountRules.MaxFailedAttempts;
         options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(AccountRules.LockoutMinutes);
 
-        options.User.RequireUniqueEmail = true;
+        // مرحله‌ی ۵: خاموش. با true، Identity ایمیلِ خالی را رد می‌کند و کاربرِ ثبت‌نام‌شده با موبایل ساخته نمی‌شود.
+        // یکتایی و قالب ایمیل (برای ایمیل‌های پرشده) را AppUserValidator تضمین می‌کند.
+        options.User.RequireUniqueEmail = false;
 
-        // ثبت‌نام با ایمیل نیاز به تأیید ایمیل دارد
+        // ثبت‌نام با ایمیل نیاز به تأیید ایمیل دارد (فقط مسیر ورود با رمز؛ ورود با کد پیامکی ایمیل لازم ندارد)
         options.SignIn.RequireConfirmedEmail = true;
     }
 }

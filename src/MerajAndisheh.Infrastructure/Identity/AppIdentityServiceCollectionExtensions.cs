@@ -6,7 +6,7 @@ namespace MerajAndisheh.Infrastructure.Identity;
 
 public static class AppIdentityServiceCollectionExtensions
 {
-    /// <summary>ثبت Identity، نقش‌ها، سرویس ثبت‌نام و Seed نقش‌ها و مدیر کل. پیش‌نیاز: AddDbContext&lt;AppDbContext&gt;.</summary>
+    /// <summary>ثبت Identity، نقش‌ها، سرویس‌های ثبت‌نام و Seed نقش‌ها و مدیر کل. پیش‌نیاز: AddDbContext&lt;AppDbContext&gt;.</summary>
     public static IServiceCollection AddAppIdentity(this IServiceCollection services)
     {
         services.AddDataProtection();
@@ -15,9 +15,11 @@ public static class AppIdentityServiceCollectionExtensions
             .AddIdentity<AppUser, AppRole>(IdentityOptionsConfigurator.Configure)
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders()
-            .AddClaimsPrincipalFactory<AppUserClaimsPrincipalFactory>();
+            .AddClaimsPrincipalFactory<AppUserClaimsPrincipalFactory>()
+            .AddUserValidator<AppUserValidator>();
 
         services.AddScoped<AccountRegistrationService>();
+        services.AddScoped<PhoneRegistrationService>();
         services.AddScoped<IdentitySeeder>();
 
         return services;

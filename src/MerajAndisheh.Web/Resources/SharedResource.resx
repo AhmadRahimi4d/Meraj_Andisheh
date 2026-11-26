@@ -356,7 +356,7 @@
     <value>ورود به حساب کاربری</value>
   </data>
   <data name="Account.Login.Field" xml:space="preserve">
-    <value>ایمیل یا نام کاربری</value>
+    <value>ایمیل یا شماره‌ی موبایل</value>
   </data>
   <data name="Account.Login.Remember" xml:space="preserve">
     <value>مرا به خاطر بسپار</value>
@@ -516,5 +516,71 @@
   </data>
   <data name="Email.Reset.Body" xml:space="preserve">
     <value>سلام {0}، برای تعیین رمز عبور جدید روی لینک زیر بزن. اگر این درخواست از طرف تو نبود، این ایمیل را نادیده بگیر:</value>
+  </data>
+  <data name="Account.Login.FieldHelp" xml:space="preserve">
+    <value>با شماره‌ی موبایل، کد تأیید پیامک می‌شود و رمز عبور لازم نیست.</value>
+  </data>
+  <data name="Account.Otp.Title" xml:space="preserve">
+    <value>تأیید شماره‌ی موبایل</value>
+  </data>
+  <data name="Account.Otp.Description" xml:space="preserve">
+    <value>کد {0} رقمی به شماره‌ی {1} پیامک شد. این کد تا {2} دقیقه معتبر است.</value>
+  </data>
+  <data name="Account.Otp.Code" xml:space="preserve">
+    <value>کد تأیید</value>
+  </data>
+  <data name="Account.Otp.Submit" xml:space="preserve">
+    <value>تأیید و ادامه</value>
+  </data>
+  <data name="Account.Otp.Resend" xml:space="preserve">
+    <value>ارسال دوباره‌ی کد</value>
+  </data>
+  <data name="Account.Otp.Resent" xml:space="preserve">
+    <value>کد تازه ارسال شد.</value>
+  </data>
+  <data name="Account.Otp.ChangePhone" xml:space="preserve">
+    <value>تغییر شماره</value>
+  </data>
+  <data name="Account.Profile.Title" xml:space="preserve">
+    <value>تکمیل ثبت‌نام</value>
+  </data>
+  <data name="Account.Profile.Description" xml:space="preserve">
+    <value>شماره‌ی {0} تأیید شد. برای ساخت حساب، این دو مورد را تکمیل کن.</value>
+  </data>
+  <data name="Account.Profile.Submit" xml:space="preserve">
+    <value>ساخت حساب</value>
+  </data>
+  <data name="Account.Error.PhoneInvalid" xml:space="preserve">
+    <value>شماره‌ی موبایل درست نیست. نمونه: 09121234567</value>
+  </data>
+  <data name="Account.Error.PhoneTaken" xml:space="preserve">
+    <value>این شماره‌ی موبایل قبلاً ثبت شده است.</value>
+  </data>
+  <data name="Account.Error.OtpInvalid" xml:space="preserve">
+    <value>کد واردشده درست نیست. {0} تلاش دیگر باقی مانده است.</value>
+  </data>
+  <data name="Account.Error.OtpExpired" xml:space="preserve">
+    <value>کد منقضی شده یا فعال نیست. یک کد تازه بگیر.</value>
+  </data>
+  <data name="Account.Error.OtpTooManyAttempts" xml:space="preserve">
+    <value>تلاش‌های ناموفق زیاد بود و این کد قفل شد. یک کد تازه بگیر.</value>
+  </data>
+  <data name="Account.Error.OtpTooSoon" xml:space="preserve">
+    <value>برای ارسال دوباره‌ی کد {0} ثانیه صبر کن.</value>
+  </data>
+  <data name="Account.Error.OtpHourlyLimit" xml:space="preserve">
+    <value>تعداد کدهای درخواستی در یک ساعت به سقف رسیده است. کمی بعد دوباره تلاش کن.</value>
+  </data>
+  <data name="Common.TooManyRequests" xml:space="preserve">
+    <value>درخواست‌های زیادی فرستاده شد. کمی بعد دوباره تلاش کن.</value>
+  </data>
+  <data name="Panel.Placeholder.Title" xml:space="preserve">
+    <value>پنل مدیریت</value>
+  </data>
+  <data name="Panel.Placeholder.Text" xml:space="preserve">
+    <value>پوسته‌ی کامل پنل در مرحله‌ی ۶ ساخته می‌شود.</value>
+  </data>
+  <data name="Panel.Placeholder.Home" xml:space="preserve">
+    <value>رفتن به سایت</value>
   </data>
 </root>

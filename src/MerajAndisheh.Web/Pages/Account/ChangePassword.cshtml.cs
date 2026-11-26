@@ -1,4 +1,5 @@
 using MerajAndisheh.Core.Domain;
+using MerajAndisheh.Core.Services;
 using MerajAndisheh.Infrastructure.Identity;
 using MerajAndisheh.Web.Models.Account;
 using Microsoft.AspNetCore.Authorization;
@@ -66,6 +67,8 @@ public class ChangePasswordModel(
         // کوکی از نو ساخته می‌شود تا پرچم «تغییر رمز اجباری» از آن برداشته شود
         await signInManager.RefreshSignInAsync(user);
 
-        return LocalRedirect("/");
+        // مرحله‌ی ۵: همکار و مدیر کل بعد از تغییر رمز به پنل می‌روند، عضو به صفحه‌ی اصلی
+        var roles = await users.GetRolesAsync(user);
+        return LocalRedirect(LoginRedirectRules.ResolveTarget(roles, null));
     }
 }
