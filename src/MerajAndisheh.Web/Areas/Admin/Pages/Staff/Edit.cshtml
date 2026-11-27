@@ -1,0 +1,65 @@
+@page "/admin/staff/{id:int}"
+@model MerajAndisheh.Web.Areas.Admin.Pages.Staff.EditModel
+@{
+    ViewData["Title"] = L["Panel.Staff.Edit"].Value;
+    var staff = Model.Staff!;
+}
+
+<div class="panel__bar">
+    <h1>@staff.DisplayName</h1>
+    <a class="btn btn--secondary" href="/admin/staff">@L["Panel.Common.Back"]</a>
+</div>
+
+@if (Model.NoticeKey is not null)
+{
+    <div class="alert alert--success" role="status">@L[Model.NoticeKey]</div>
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div asp-validation-summary="All" class="alert alert--danger" role="alert"></div>
+}
+
+<dl class="panel__facts">
+    <dt>@L["Panel.Field.Email"]</dt>
+    <dd dir="ltr">@staff.Email</dd>
+    <dt>@L["Panel.Field.Status"]</dt>
+    <dd>
+        <span class="badge @(staff.IsActive ? "badge--on" : "badge--off")">@(staff.IsActive ? L["Panel.Status.Active"] : L["Panel.Status.Inactive"])</span>
+        @if (staff.MustChangePassword)
+        {
+            <span class="badge badge--warn">@L["Panel.Staff.MustChange"]</span>
+        }
+    </dd>
+</dl>
+
+<form method="post" asp-page-handler="Save" asp-route-id="@staff.Id" novalidate class="panel__form">
+    <fieldset class="panel__perms">
+        <legend>@L["Panel.Staff.Permissions"]</legend>
+        <p class="field__help">@L["Panel.Staff.PermissionsAppliedNote"]</p>
+        @foreach (var key in PermissionKeys.All)
+        {
+            <label class="field field--check">
+                <input type="checkbox" name="Input.Permissions" value="@key" checked="@Model.Input.Permissions.Contains(key)" />
+                <span>@L["Permission." + key]</span>
+            </label>
+        }
+    </fieldset>
+    <button class="btn btn--primary" type="submit">@L["Panel.Common.Save"]</button>
+</form>
+
+<hr />
+
+@if (staff.IsActive)
+{
+    <form method="post" asp-page-handler="Deactivate" asp-route-id="@staff.Id">
+        <p class="field__help">@L["Panel.Staff.DeactivateNote"]</p>
+        <button class="btn btn--secondary" type="submit">@L["Panel.Staff.Deactivate"]</button>
+    </form>
+}
+else
+{
+    <form method="post" asp-page-handler="Activate" asp-route-id="@staff.Id">
+        <button class="btn btn--primary" type="submit">@L["Panel.Staff.Activate"]</button>
+    </form>
+}

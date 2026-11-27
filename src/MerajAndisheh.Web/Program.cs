@@ -1,4 +1,6 @@
 using MerajAndisheh.Infrastructure;
+using MerajAndisheh.Infrastructure.Administration;
+using MerajAndisheh.Infrastructure.Authorization;
 using MerajAndisheh.Infrastructure.Data;
 using MerajAndisheh.Infrastructure.Identity;
 using MerajAndisheh.Infrastructure.Otp;
@@ -40,6 +42,10 @@ try
     builder.Services.AddAppIdentity();
     builder.Services.AddAppAuthentication(builder.Environment);
     builder.Services.AddScoped<AccountEmailComposer>();
+
+    // مرحله‌ی ۶: Policy های دسترسی بخش‌به‌بخش (برای هر کلید یک Policy) و سرویس‌های پنل مدیریت
+    builder.Services.AddAppAuthorization();
+    builder.Services.AddAdministration();
 
     // مرحله‌ی ۵: کلید هش کد پیامکی (Otp:HashKey از User Secrets / تنظیمات سرور)، برگه‌ی تأیید شماره و محدودیت نرخ
     builder.Services.Configure<OtpOptions>(builder.Configuration.GetSection(OtpOptions.SectionName));

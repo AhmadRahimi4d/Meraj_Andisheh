@@ -1,0 +1,55 @@
+@page "/admin/staff/create"
+@model MerajAndisheh.Web.Areas.Admin.Pages.Staff.CreateModel
+@{
+    ViewData["Title"] = L["Panel.Staff.Create"].Value;
+}
+
+<div class="panel__bar">
+    <h1>@L["Panel.Staff.Create"]</h1>
+    <a class="btn btn--secondary" href="/admin/staff">@L["Panel.Common.Back"]</a>
+</div>
+
+@if (Model.TemporaryPassword is not null)
+{
+    <div class="alert alert--success" role="status">
+        <p><strong>@L["Panel.Staff.Created", Model.CreatedEmail ?? string.Empty]</strong></p>
+        <p>@L["Panel.Staff.TempPasswordLabel"]</p>
+        <p><code class="panel__secret" dir="ltr">@Model.TemporaryPassword</code></p>
+        <p>@L["Panel.Staff.TempPasswordWarning"]</p>
+        @if (Model.CreatedStaffId is not null)
+        {
+            <p><a href="/admin/staff/@Model.CreatedStaffId">@L["Panel.Staff.GoToStaff"]</a></p>
+        }
+    </div>
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div asp-validation-summary="All" class="alert alert--danger" role="alert"></div>
+}
+
+<form method="post" novalidate class="panel__form">
+    <div class="field">
+        <label class="field__label" asp-for="Input.DisplayName">@L["Panel.Field.DisplayName"]</label>
+        <input class="field__input" asp-for="Input.DisplayName" maxlength="@AccountRules.DisplayNameMaxLength" />
+    </div>
+    <div class="field">
+        <label class="field__label" asp-for="Input.Email">@L["Panel.Field.Email"]</label>
+        <input class="field__input" asp-for="Input.Email" type="email" dir="ltr" autocomplete="off" />
+        <span class="field__help">@L["Panel.Staff.EmailHelp"]</span>
+    </div>
+
+    <fieldset class="panel__perms">
+        <legend>@L["Panel.Staff.Permissions"]</legend>
+        <p class="field__help">@L["Panel.Staff.PermissionsHelp"]</p>
+        @foreach (var key in PermissionKeys.All)
+        {
+            <label class="field field--check">
+                <input type="checkbox" name="Input.Permissions" value="@key" checked="@Model.Input.Permissions.Contains(key)" />
+                <span>@L["Permission." + key]</span>
+            </label>
+        }
+    </fieldset>
+
+    <button class="btn btn--primary" type="submit">@L["Panel.Staff.CreateSubmit"]</button>
+</form>

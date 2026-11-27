@@ -422,6 +422,20 @@ namespace MerajAndisheh.Infrastructure.Data.Migrations
                     b.ToTable("SiteSettings", (string)null);
                 });
 
+            modelBuilder.Entity("MerajAndisheh.Core.Domain.Entities.StaffPermission", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PermissionKey")
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.HasKey("UserId", "PermissionKey");
+
+                    b.ToTable("StaffPermissions", (string)null);
+                });
+
             modelBuilder.Entity("MerajAndisheh.Core.Domain.Entities.Tag", b =>
                 {
                     b.Property<int>("Id")
@@ -828,6 +842,15 @@ namespace MerajAndisheh.Infrastructure.Data.Migrations
                     b.Navigation("Content");
 
                     b.Navigation("Topic");
+                });
+
+            modelBuilder.Entity("MerajAndisheh.Core.Domain.Entities.StaffPermission", b =>
+                {
+                    b.HasOne("MerajAndisheh.Infrastructure.Identity.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MerajAndisheh.Core.Domain.Entities.Topic", b =>

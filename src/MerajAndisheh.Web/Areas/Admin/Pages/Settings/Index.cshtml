@@ -1,0 +1,92 @@
+@page "/admin/settings"
+@model MerajAndisheh.Web.Areas.Admin.Pages.Settings.IndexModel
+@{
+    ViewData["Title"] = L["Panel.Menu.Settings"].Value;
+}
+
+<div class="panel__bar">
+    <h1>@L["Panel.Settings.Heading"]</h1>
+</div>
+
+@if (Model.NoticeKey is not null)
+{
+    <div class="alert alert--success" role="status">@L[Model.NoticeKey]</div>
+}
+
+<section aria-labelledby="modules-heading">
+    <h2 id="modules-heading">@L["Panel.Settings.Modules"]</h2>
+    <p class="field__help">@L["Panel.Settings.ModulesHelp"]</p>
+
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@L["Panel.Settings.Module"]</th>
+                    <th>@L["Panel.Field.Status"]</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var feature in Model.Features)
+                {
+                    <tr>
+                        <td>@L["Feature." + feature.Key]</td>
+                        <td><span class="badge @(feature.IsEnabled ? "badge--on" : "badge--off")">@(feature.IsEnabled ? L["Common.On"] : L["Common.Off"])</span></td>
+                        <td>
+                            <form method="post" asp-page-handler="Module" asp-route-key="@feature.Key" asp-route-enabled="@(!feature.IsEnabled)">
+                                <button class="btn btn--secondary btn--sm" type="submit">@(feature.IsEnabled ? L["Panel.Settings.TurnOff"] : L["Panel.Settings.TurnOn"])</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section aria-labelledby="settings-heading">
+    <h2 id="settings-heading">@L["Panel.Settings.Site"]</h2>
+
+    @if (Model.Errors.Count > 0)
+    {
+        <div class="alert alert--danger" role="alert">@L["Panel.Settings.NotSaved"]</div>
+    }
+
+    <form method="post" asp-page-handler="Settings" novalidate class="panel__form">
+        @foreach (var item in Model.Settings)
+        {
+            var definition = item.Definition;
+            var fieldName = "Values[" + definition.Key + "]";
+            var current = Model.Values.TryGetValue(definition.Key, out var submitted) ? submitted : item.Value;
+            var hasError = Model.Errors.TryGetValue(definition.Key, out var error);
+
+            <div class="field @(hasError ? "is-invalid" : "")">
+                <label class="field__label" for="@fieldName">@L["Setting." + definition.Key]</label>
+
+                @if (definition.Kind == SiteSettingKind.Bool)
+                {
+                    <select class="field__input" id="@fieldName" name="@fieldName">
+                        <option value="1" selected="@(current == "1")">@L["Common.On"]</option>
+                        <option value="0" selected="@(current == "0")">@L["Common.Off"]</option>
+                    </select>
+                }
+                else if (definition.Kind == SiteSettingKind.Int)
+                {
+                    <input class="field__input" id="@fieldName" name="@fieldName" value="@current" dir="ltr" inputmode="numeric" autocomplete="off" />
+                    <span class="field__help">@L["Panel.Settings.Range", definition.Min, definition.Max]</span>
+                }
+                else
+                {
+                    <input class="field__input" id="@fieldName" name="@fieldName" value="@current" maxlength="@definition.Max" />
+                }
+
+                @if (hasError)
+                {
+                    <span class="field__error">@L["Panel.Settings.Error." + error, definition.Min, definition.Max]</span>
+                }
+            </div>
+        }
+
+        <button class="btn btn--primary" type="submit">@L["Panel.Common.Save"]</button>
+    </form>
+</section>

@@ -1,0 +1,73 @@
+@page "/admin/users"
+@model MerajAndisheh.Web.Areas.Admin.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = L["Panel.Menu.Users"].Value;
+    var result = Model.Result;
+}
+
+<div class="panel__bar">
+    <h1>@L["Panel.Users.Heading"]</h1>
+</div>
+
+@if (Model.NoticeKey is not null)
+{
+    <div class="alert alert--success" role="status">@L[Model.NoticeKey]</div>
+}
+
+<form method="get" class="panel__search" role="search">
+    <input class="field__input" type="search" name="q" value="@Model.Q" placeholder="@L["Panel.Users.SearchPlaceholder"]" aria-label="@L["Common.Search"]" />
+    <button class="btn btn--primary" type="submit">@L["Common.Search"]</button>
+</form>
+
+@if (result.Items.Count == 0)
+{
+    <div class="alert alert--info" role="status">@L["Panel.Users.Empty"]</div>
+}
+else
+{
+    <p class="muted">@L["Panel.Users.Count", result.TotalCount]</p>
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@L["Panel.Field.DisplayName"]</th>
+                    <th>@L["Panel.Field.Email"]</th>
+                    <th>@L["Panel.Field.Phone"]</th>
+                    <th>@L["Panel.Field.Status"]</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in result.Items)
+                {
+                    <tr>
+                        <td>@row.DisplayName</td>
+                        <td dir="ltr">@row.Email</td>
+                        <td dir="ltr">@row.PhoneNumber</td>
+                        <td><span class="badge @(row.IsActive ? "badge--on" : "badge--off")">@(row.IsActive ? L["Panel.Status.Active"] : L["Panel.Status.Inactive"])</span></td>
+                        <td>
+                            <form method="post" asp-page-handler="SetActive" asp-route-id="@row.Id" asp-route-active="@(!row.IsActive)" asp-route-q="@Model.Q" asp-route-p="@result.Page">
+                                <button class="btn btn--secondary btn--sm" type="submit">@(row.IsActive ? L["Panel.Users.Deactivate"] : L["Panel.Users.Activate"])</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if (result.TotalPages > 1)
+    {
+        <nav class="panel__pager" aria-label="@L["Panel.Common.Pagination"]">
+            @if (result.HasPrevious)
+            {
+                <a class="btn btn--secondary btn--sm" href="?q=@Uri.EscapeDataString(Model.Q ?? string.Empty)&p=@(result.Page - 1)">@L["Panel.Common.Previous"]</a>
+            }
+            <span>@L["Panel.Common.PageOf", result.Page, result.TotalPages]</span>
+            @if (result.HasNext)
+            {
+                <a class="btn btn--secondary btn--sm" href="?q=@Uri.EscapeDataString(Model.Q ?? string.Empty)&p=@(result.Page + 1)">@L["Panel.Common.Next"]</a>
+            }
+        </nav>
+    }
+}

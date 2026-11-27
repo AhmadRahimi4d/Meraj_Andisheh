@@ -36,6 +36,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options)
     // ورود با موبایل (مرحله‌ی ۵)
     public DbSet<OtpCode> OtpCodes => Set<OtpCode>();
 
+    // دسترسی همکاران بخش‌به‌بخش (مرحله‌ی ۶)
+    public DbSet<StaffPermission> StaffPermissions => Set<StaffPermission>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

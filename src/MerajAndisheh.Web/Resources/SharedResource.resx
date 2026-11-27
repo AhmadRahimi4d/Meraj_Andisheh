@@ -583,4 +583,316 @@
   <data name="Panel.Placeholder.Home" xml:space="preserve">
     <value>رفتن به سایت</value>
   </data>
+  <data name="Permission.dashboard.view" xml:space="preserve">
+    <value>داشبورد (آمار)</value>
+  </data>
+  <data name="Permission.content.manage" xml:space="preserve">
+    <value>محتوا</value>
+  </data>
+  <data name="Permission.taxonomy.manage" xml:space="preserve">
+    <value>طبقه‌بندی‌ها و رده‌های سنی</value>
+  </data>
+  <data name="Permission.requests.manage" xml:space="preserve">
+    <value>درخواست‌های محتوا</value>
+  </data>
+  <data name="Permission.comments.moderate" xml:space="preserve">
+    <value>نظرات</value>
+  </data>
+  <data name="Permission.users.manage" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="Permission.layout.manage" xml:space="preserve">
+    <value>ظاهر و جانمایی</value>
+  </data>
+  <data name="Permission.portals.manage" xml:space="preserve">
+    <value>پرتال‌ها</value>
+  </data>
+  <data name="Permission.settings.manage" xml:space="preserve">
+    <value>تنظیمات و ماژول‌ها</value>
+  </data>
+  <data name="Permission.backup.manage" xml:space="preserve">
+    <value>پشتیبان‌گیری</value>
+  </data>
+  <data name="Feature.Comments" xml:space="preserve">
+    <value>نظرات</value>
+  </data>
+  <data name="Feature.ContentRequests" xml:space="preserve">
+    <value>درخواست محتوا</value>
+  </data>
+  <data name="Feature.Films" xml:space="preserve">
+    <value>پرتال فیلم و مستند</value>
+  </data>
+  <data name="Feature.Books" xml:space="preserve">
+    <value>پرتال کتاب</value>
+  </data>
+  <data name="Feature.Games" xml:space="preserve">
+    <value>پرتال بازی</value>
+  </data>
+  <data name="Feature.StoryGenerator" xml:space="preserve">
+    <value>تولید استوری</value>
+  </data>
+  <data name="Feature.NewsTicker" xml:space="preserve">
+    <value>نوار اخبار</value>
+  </data>
+  <data name="Setting.Site.Title" xml:space="preserve">
+    <value>عنوان سایت</value>
+  </data>
+  <data name="Setting.Site.Subtitle" xml:space="preserve">
+    <value>زیرعنوان سایت</value>
+  </data>
+  <data name="Setting.Personalization.DefaultEnabled" xml:space="preserve">
+    <value>شخصی‌سازی هوشمند (سراسری)</value>
+  </data>
+  <data name="Setting.Personalization.MinViews" xml:space="preserve">
+    <value>حداقل بازدید برای نمایش «پیشنهادهای شما»</value>
+  </data>
+  <data name="Setting.Comments.MaxLength" xml:space="preserve">
+    <value>سقف طول نظر (نویسه)</value>
+  </data>
+  <data name="Setting.Upload.MaxVideoMb" xml:space="preserve">
+    <value>سقف آپلود ویدیو (مگابایت)</value>
+  </data>
+  <data name="Setting.Upload.MaxOtherMb" xml:space="preserve">
+    <value>سقف آپلود سایر فایل‌ها (مگابایت)</value>
+  </data>
+  <data name="Setting.Home.ItemsPerShelf" xml:space="preserve">
+    <value>تعداد محتوا در هر قفسه‌ی صفحه‌ی اصلی</value>
+  </data>
+  <data name="Panel.Menu.Label" xml:space="preserve">
+    <value>منوی بخش‌ها</value>
+  </data>
+  <data name="Panel.Menu.Home" xml:space="preserve">
+    <value>صفحه‌ی اصلی پنل</value>
+  </data>
+  <data name="Panel.Menu.Staff" xml:space="preserve">
+    <value>همکاران و دسترسی‌ها</value>
+  </data>
+  <data name="Panel.Menu.Users" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="Panel.Menu.Settings" xml:space="preserve">
+    <value>تنظیمات و ماژول‌ها</value>
+  </data>
+  <data name="Panel.Home.Welcome" xml:space="preserve">
+    <value>سلام {0}</value>
+  </data>
+  <data name="Panel.Home.Intro" xml:space="preserve">
+    <value>بخشی را از منو انتخاب کن.</value>
+  </data>
+  <data name="Panel.Home.NoSections" xml:space="preserve">
+    <value>هنوز به هیچ بخشی دسترسی نداری. از مدیر کل بخواه دسترسی‌های لازم را بدهد.</value>
+  </data>
+  <data name="Panel.Forbidden.Title" xml:space="preserve">
+    <value>دسترسی نداری</value>
+  </data>
+  <data name="Panel.Forbidden.Text" xml:space="preserve">
+    <value>برای این بخش دسترسی نداری. اگر لازم است، از مدیر کل بخواه دسترسی‌ات را تغییر دهد.</value>
+  </data>
+  <data name="Panel.Forbidden.Back" xml:space="preserve">
+    <value>بازگشت به صفحه‌ی اصلی پنل</value>
+  </data>
+  <data name="Panel.Field.DisplayName" xml:space="preserve">
+    <value>نام نمایشی</value>
+  </data>
+  <data name="Panel.Field.Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="Panel.Field.Phone" xml:space="preserve">
+    <value>شماره‌ی موبایل</value>
+  </data>
+  <data name="Panel.Field.Status" xml:space="preserve">
+    <value>وضعیت</value>
+  </data>
+  <data name="Panel.Status.Active" xml:space="preserve">
+    <value>فعال</value>
+  </data>
+  <data name="Panel.Status.Inactive" xml:space="preserve">
+    <value>غیرفعال</value>
+  </data>
+  <data name="Panel.Common.Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="Panel.Common.Back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="Panel.Common.Save" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+  <data name="Panel.Common.Previous" xml:space="preserve">
+    <value>قبلی</value>
+  </data>
+  <data name="Panel.Common.Next" xml:space="preserve">
+    <value>بعدی</value>
+  </data>
+  <data name="Panel.Common.PageOf" xml:space="preserve">
+    <value>صفحه‌ی {0} از {1}</value>
+  </data>
+  <data name="Panel.Common.Pagination" xml:space="preserve">
+    <value>صفحه‌بندی</value>
+  </data>
+  <data name="Panel.Error.Operation" xml:space="preserve">
+    <value>عملیات انجام نشد. دوباره تلاش کن.</value>
+  </data>
+  <data name="Common.On" xml:space="preserve">
+    <value>روشن</value>
+  </data>
+  <data name="Common.Off" xml:space="preserve">
+    <value>خاموش</value>
+  </data>
+  <data name="Panel.Staff.Heading" xml:space="preserve">
+    <value>همکاران و دسترسی‌ها</value>
+  </data>
+  <data name="Panel.Staff.Create" xml:space="preserve">
+    <value>ساخت حساب همکار</value>
+  </data>
+  <data name="Panel.Staff.CreateSubmit" xml:space="preserve">
+    <value>ساخت حساب</value>
+  </data>
+  <data name="Panel.Staff.Edit" xml:space="preserve">
+    <value>ویرایش همکار</value>
+  </data>
+  <data name="Panel.Staff.Empty" xml:space="preserve">
+    <value>هنوز همکاری ساخته نشده است.</value>
+  </data>
+  <data name="Panel.Staff.Permissions" xml:space="preserve">
+    <value>دسترسی‌ها</value>
+  </data>
+  <data name="Panel.Staff.PermissionsHelp" xml:space="preserve">
+    <value>همکار فقط بخش‌های تیک‌خورده را در منو می‌بیند و به آن‌ها می‌رسد.</value>
+  </data>
+  <data name="Panel.Staff.PermissionsAppliedNote" xml:space="preserve">
+    <value>تغییر دسترسی‌ها پس از ورود دوباره‌ی همکار اعمال می‌شود؛ نشست بازِ او تا چند لحظه‌ی بعد خودکار بسته می‌شود.</value>
+  </data>
+  <data name="Panel.Staff.PermissionsSaved" xml:space="preserve">
+    <value>دسترسی‌ها ذخیره شد.</value>
+  </data>
+  <data name="Panel.Staff.NoPermissions" xml:space="preserve">
+    <value>بدون دسترسی</value>
+  </data>
+  <data name="Panel.Staff.MustChange" xml:space="preserve">
+    <value>تغییر رمز اجباری</value>
+  </data>
+  <data name="Panel.Staff.EmailHelp" xml:space="preserve">
+    <value>همکار با همین ایمیل و رمز موقت وارد می‌شود.</value>
+  </data>
+  <data name="Panel.Staff.Created" xml:space="preserve">
+    <value>حساب {0} ساخته شد.</value>
+  </data>
+  <data name="Panel.Staff.TempPasswordLabel" xml:space="preserve">
+    <value>رمز موقت:</value>
+  </data>
+  <data name="Panel.Staff.TempPasswordWarning" xml:space="preserve">
+    <value>این رمز فقط همین یک‌بار نشان داده می‌شود و جای دیگری ذخیره نمی‌شود. آن را همین حالا به همکار بده؛ او در اولین ورود باید رمز را عوض کند.</value>
+  </data>
+  <data name="Panel.Staff.GoToStaff" xml:space="preserve">
+    <value>رفتن به صفحه‌ی این همکار</value>
+  </data>
+  <data name="Panel.Staff.Deactivate" xml:space="preserve">
+    <value>غیرفعال‌سازی همکار</value>
+  </data>
+  <data name="Panel.Staff.DeactivateNote" xml:space="preserve">
+    <value>همکار غیرفعال نمی‌تواند وارد شود و نشست بازش تا چند لحظه‌ی بعد بسته می‌شود. حذف واقعی وجود ندارد.</value>
+  </data>
+  <data name="Panel.Staff.Activate" xml:space="preserve">
+    <value>فعال‌سازی همکار</value>
+  </data>
+  <data name="Panel.Staff.Activated" xml:space="preserve">
+    <value>همکار فعال شد.</value>
+  </data>
+  <data name="Panel.Staff.Deactivated" xml:space="preserve">
+    <value>همکار غیرفعال شد.</value>
+  </data>
+  <data name="Panel.Staff.Error.EmailInvalid" xml:space="preserve">
+    <value>ایمیل درست نیست.</value>
+  </data>
+  <data name="Panel.Staff.Error.EmailTaken" xml:space="preserve">
+    <value>این ایمیل قبلاً ثبت شده است.</value>
+  </data>
+  <data name="Panel.Staff.Error.DisplayNameInvalid" xml:space="preserve">
+    <value>نام نمایشی باید بین ۱ تا {0} نویسه باشد.</value>
+  </data>
+  <data name="Panel.Staff.Error.PermissionInvalid" xml:space="preserve">
+    <value>کلید دسترسی نامعتبر است.</value>
+  </data>
+  <data name="Panel.Staff.Error.Unknown" xml:space="preserve">
+    <value>حساب ساخته نشد. دوباره تلاش کن.</value>
+  </data>
+  <data name="Panel.Users.Heading" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="Panel.Users.SearchPlaceholder" xml:space="preserve">
+    <value>نام نمایشی، ایمیل یا شماره‌ی موبایل</value>
+  </data>
+  <data name="Panel.Users.Empty" xml:space="preserve">
+    <value>کاربری پیدا نشد.</value>
+  </data>
+  <data name="Panel.Users.Count" xml:space="preserve">
+    <value>{0} کاربر</value>
+  </data>
+  <data name="Panel.Users.Activate" xml:space="preserve">
+    <value>فعال‌سازی</value>
+  </data>
+  <data name="Panel.Users.Deactivate" xml:space="preserve">
+    <value>غیرفعال‌سازی</value>
+  </data>
+  <data name="Panel.Users.Activated" xml:space="preserve">
+    <value>کاربر فعال شد.</value>
+  </data>
+  <data name="Panel.Users.Deactivated" xml:space="preserve">
+    <value>کاربر غیرفعال شد.</value>
+  </data>
+  <data name="Panel.Settings.Heading" xml:space="preserve">
+    <value>تنظیمات و ماژول‌ها</value>
+  </data>
+  <data name="Panel.Settings.Modules" xml:space="preserve">
+    <value>ماژول‌های اختیاری</value>
+  </data>
+  <data name="Panel.Settings.ModulesHelp" xml:space="preserve">
+    <value>ماژول خاموش یعنی لینکش در منو نیست و نشانی‌هایش «یافت نشد» می‌دهند. اجرای این رفتار با ساخته‌شدن هر ماژول فعال می‌شود؛ تا آن زمان فقط وضعیت ثبت می‌شود.</value>
+  </data>
+  <data name="Panel.Settings.Module" xml:space="preserve">
+    <value>ماژول</value>
+  </data>
+  <data name="Panel.Settings.TurnOn" xml:space="preserve">
+    <value>روشن‌کردن</value>
+  </data>
+  <data name="Panel.Settings.TurnOff" xml:space="preserve">
+    <value>خاموش‌کردن</value>
+  </data>
+  <data name="Panel.Settings.ModuleEnabled" xml:space="preserve">
+    <value>ماژول روشن شد.</value>
+  </data>
+  <data name="Panel.Settings.ModuleDisabled" xml:space="preserve">
+    <value>ماژول خاموش شد.</value>
+  </data>
+  <data name="Panel.Settings.Site" xml:space="preserve">
+    <value>تنظیمات سایت</value>
+  </data>
+  <data name="Panel.Settings.Saved" xml:space="preserve">
+    <value>تنظیمات ذخیره شد.</value>
+  </data>
+  <data name="Panel.Settings.NotSaved" xml:space="preserve">
+    <value>تنظیمات ذخیره نشد. خطای هر مورد زیر آن نوشته شده است.</value>
+  </data>
+  <data name="Panel.Settings.Range" xml:space="preserve">
+    <value>عدد بین {0} و {1}</value>
+  </data>
+  <data name="Panel.Settings.Error.UnknownKey" xml:space="preserve">
+    <value>این تنظیم شناخته‌شده نیست.</value>
+  </data>
+  <data name="Panel.Settings.Error.Required" xml:space="preserve">
+    <value>این مقدار نباید خالی باشد.</value>
+  </data>
+  <data name="Panel.Settings.Error.TooLong" xml:space="preserve">
+    <value>بیش از {1} نویسه مجاز نیست.</value>
+  </data>
+  <data name="Panel.Settings.Error.NotInteger" xml:space="preserve">
+    <value>فقط عدد صحیح وارد کن.</value>
+  </data>
+  <data name="Panel.Settings.Error.OutOfRange" xml:space="preserve">
+    <value>عدد باید بین {0} و {1} باشد.</value>
+  </data>
+  <data name="Panel.Settings.Error.NotBool" xml:space="preserve">
+    <value>فقط «روشن» یا «خاموش» مجاز است.</value>
+  </data>
 </root>

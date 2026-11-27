@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace MerajAndisheh.Web.Areas.Admin.Pages;
 
 /// <summary>
-/// صفحه‌ی خالیِ موقت پنل مدیریت (پوسته‌ی کامل در مرحله‌ی ۶). هیچ‌جای بخش عمومی به این صفحه لینک نمی‌دهد.
-/// غیرهمکاران پیش از رسیدن به اینجا در AdminHiddenMiddleware پاسخ ۴۰۴ می‌گیرند؛ این مجوز لایه‌ی دوم دفاع است.
+/// صفحه‌ی اصلی پنل: بخش‌هایی را که کاربر به آن‌ها دسترسی دارد نشان می‌دهد (داشبورد آمار در مرحله‌ی ۱۹ می‌آید).
+/// هیچ‌جای بخش عمومی به این صفحه لینک نمی‌دهد. غیرهمکاران پیش از رسیدن به اینجا در AdminHiddenMiddleware «۴۰۴» می‌گیرند.
 /// </summary>
-[Authorize(Roles = RoleNames.SuperAdmin + "," + RoleNames.Staff)]
+[Authorize(Policy = PolicyNames.AnyStaff)]
 public class IndexModel : PageModel
 {
     public void OnGet()

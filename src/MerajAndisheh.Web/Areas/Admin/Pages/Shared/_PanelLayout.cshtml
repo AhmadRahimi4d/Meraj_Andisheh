@@ -1,0 +1,58 @@
+@{
+    var isSuperAdmin = User.IsSuperAdmin();
+    var menu = AdminMenuCatalog.VisibleFor(isSuperAdmin, User.GetPermissions());
+    var path = Context.Request.Path.Value ?? string.Empty;
+
+    bool IsActive(AdminMenuItem item)
+        => item.Id == "home"
+            ? string.Equals(path.TrimEnd('/'), item.Path, StringComparison.OrdinalIgnoreCase)
+            : path.StartsWith(item.Path, StringComparison.OrdinalIgnoreCase);
+}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="editorial">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>@ViewData["Title"] - @L["Panel.Placeholder.Title"] - @L["App.Name"]</title>
+    <link rel="stylesheet" href="~/css/tokens.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/base.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/panel.css" asp-append-version="true" />
+</head>
+<body class="panel">
+    <a class="skip-link" href="#main">@L["Common.SkipToContent"]</a>
+
+    <header class="panel__header">
+        <div class="panel__brand">
+            <span class="brand__mark" aria-hidden="true"></span>
+            <span>@L["App.Name"] — @L["Panel.Placeholder.Title"]</span>
+        </div>
+        <div class="panel__user">
+            <span>@User.FindFirst(AppClaimTypes.DisplayName)?.Value</span>
+            <a class="btn btn--ghost btn--sm" href="/">@L["Panel.Placeholder.Home"]</a>
+            <form class="inline-form" method="post" asp-area="" asp-page="/Account/Logout">
+                <button class="btn btn--secondary btn--sm" type="submit">@L["Header.Logout"]</button>
+            </form>
+        </div>
+    </header>
+
+    <div class="panel__body">
+        <nav class="panel__menu" aria-label="@L["Panel.Menu.Label"]">
+            <ul>
+                @foreach (var item in menu)
+                {
+                    <li>
+                        <a class="panel__link @(IsActive(item) ? "is-active" : "")" href="@item.Path"
+                           aria-current="@(IsActive(item) ? "page" : null)">@L[item.LabelKey]</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+
+        <main id="main" class="panel__main">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

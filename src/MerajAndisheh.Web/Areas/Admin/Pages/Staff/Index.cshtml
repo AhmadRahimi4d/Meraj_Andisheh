@@ -1,0 +1,58 @@
+@page "/admin/staff"
+@model MerajAndisheh.Web.Areas.Admin.Pages.Staff.IndexModel
+@{
+    ViewData["Title"] = L["Panel.Menu.Staff"].Value;
+}
+
+<div class="panel__bar">
+    <h1>@L["Panel.Staff.Heading"]</h1>
+    <a class="btn btn--primary" href="/admin/staff/create">@L["Panel.Staff.Create"]</a>
+</div>
+
+@if (Model.Rows.Count == 0)
+{
+    <div class="alert alert--info" role="status">@L["Panel.Staff.Empty"]</div>
+}
+else
+{
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@L["Panel.Field.DisplayName"]</th>
+                    <th>@L["Panel.Field.Email"]</th>
+                    <th>@L["Panel.Staff.Permissions"]</th>
+                    <th>@L["Panel.Field.Status"]</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row.DisplayName</td>
+                        <td dir="ltr">@row.Email</td>
+                        <td>
+                            @if (row.Permissions.Count == 0)
+                            {
+                                <span class="muted">@L["Panel.Staff.NoPermissions"]</span>
+                            }
+                            else
+                            {
+                                @string.Join(L["Common.ListSeparator"].Value + " ", row.Permissions.Select(key => L["Permission." + key].Value))
+                            }
+                        </td>
+                        <td>
+                            <span class="badge @(row.IsActive ? "badge--on" : "badge--off")">@(row.IsActive ? L["Panel.Status.Active"] : L["Panel.Status.Inactive"])</span>
+                            @if (row.MustChangePassword)
+                            {
+                                <span class="badge badge--warn">@L["Panel.Staff.MustChange"]</span>
+                            }
+                        </td>
+                        <td><a class="btn btn--secondary btn--sm" href="/admin/staff/@row.Id">@L["Panel.Common.Edit"]</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
